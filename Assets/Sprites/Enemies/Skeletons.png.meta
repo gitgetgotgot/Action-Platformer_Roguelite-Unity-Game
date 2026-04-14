@@ -1,0 +1,616 @@
+fileFormatVersion: 2
+guid: 99e2cca2dcc013b45bf3ed7a764ff426
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2990187910563544236
+    second: SkeletonWarrior_0
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: warrior attack 1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 181
+        width: 24
+        height: 75
+      alignment: 9
+      pivot: {x: 0.5416667, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09d0a409acced1f449bc695be11cf5c1
+      internalID: -1213964144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warrior attack 2
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 181
+        width: 42
+        height: 75
+      alignment: 9
+      pivot: {x: 0.26190478, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 004d7502e59ab834c93d3187773d46b2
+      internalID: -1505815579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warrior attack 3
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 181
+        width: 46
+        height: 75
+      alignment: 9
+      pivot: {x: 0.23913044, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 966fea3b9b25cf140a959283c710ec55
+      internalID: 1690393680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shooter attack 1
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 181
+        width: 52
+        height: 75
+      alignment: 9
+      pivot: {x: 0.1923077, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0362a3e671615b40a78a5496b890f1d
+      internalID: 1062390369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shooter attack 2
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 181
+        width: 44
+        height: 75
+      alignment: 9
+      pivot: {x: 0.27272728, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 617719a931e9b2649a99eb9628a43d3e
+      internalID: 951097858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shooter attack 3
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 181
+        width: 40
+        height: 75
+      alignment: 9
+      pivot: {x: 0.3, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d536cd8d42f93b4b8b808b593f7bf8a
+      internalID: 1112630475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warrior walk 1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120
+        width: 28
+        height: 60
+      alignment: 9
+      pivot: {x: 0.53571427, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d409a3a8cb1ce7428abe80e7a1bbd07
+      internalID: 2117477146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warrior walk 2
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 120
+        width: 30
+        height: 60
+      alignment: 9
+      pivot: {x: 0.53333336, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c75feff75efe72c4898ebe969feb3644
+      internalID: -499969968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warrior walk 3
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 120
+        width: 24
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5416667, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74084771d55d10c47899cbb5a2350bbe
+      internalID: 417236191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warrior walk 4
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 120
+        width: 24
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4fc1cb0a02929943b67db974fe11475
+      internalID: 1052578567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warrior idle
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 120
+        width: 26
+        height: 60
+      alignment: 9
+      pivot: {x: 0.53846157, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d3e48eea1c64b44682a26b459ba9dbe
+      internalID: -747480999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shooter walk 1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 59
+        width: 44
+        height: 60
+      alignment: 9
+      pivot: {x: 0.70454544, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ba23199ae78cfd498f825820d5714d0
+      internalID: 1448847250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shooter walk 2
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 59
+        width: 46
+        height: 60
+      alignment: 9
+      pivot: {x: 0.6956522, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55e9cd72b7401684b9daab219a18a68d
+      internalID: 548458700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shooter idle
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 59
+        width: 42
+        height: 60
+      alignment: 9
+      pivot: {x: 0.71428573, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfdb5906954c61b4097801c389094f2b
+      internalID: -2017107650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shooter walk3
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 59
+        width: 42
+        height: 60
+      alignment: 9
+      pivot: {x: 0.6904762, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f452a8fc01f0c9148aa825543f3547d7
+      internalID: 974131104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shooter walk 4
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 59
+        width: 42
+        height: 60
+      alignment: 9
+      pivot: {x: 0.6666667, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b64eea022ca29c44a47426778f65ecf
+      internalID: 212513328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 136
+        width: 29
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a45c327f57ca78849bfa61d1b7e6f6f2
+      internalID: -1108896847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead 1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 24
+        height: 58
+      alignment: 9
+      pivot: {x: 0.5416667, y: 0.51724136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 590f864075a492641b0e8328cb444599
+      internalID: -235723249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead 2
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 0
+        width: 30
+        height: 58
+      alignment: 9
+      pivot: {x: 0.43333334, y: 0.51724136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f63bd00b6521c224f8590552b1ae7375
+      internalID: -1390358787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead 3
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0
+        width: 30
+        height: 58
+      alignment: 9
+      pivot: {x: 0.43333334, y: 0.51724136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9914e1ef46c5a6a45892faee560add4d
+      internalID: 312511725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead 4
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 0
+        width: 30
+        height: 58
+      alignment: 9
+      pivot: {x: 0.43333334, y: 0.51724136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b25031f39ab61824b81ee40021b78d67
+      internalID: -367043949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d150fe1880eee7947a715e9e4e9b888d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Arrow: -1108896847
+      Dead 1: -235723249
+      Dead 2: -1390358787
+      Dead 3: 312511725
+      Dead 4: -367043949
+      shooter attack 1: 1062390369
+      shooter attack 2: 951097858
+      shooter attack 3: 1112630475
+      shooter idle: -2017107650
+      shooter walk 1: 1448847250
+      shooter walk 2: 548458700
+      shooter walk 4: 212513328
+      shooter walk3: 974131104
+      warrior attack 1: -1213964144
+      warrior attack 2: -1505815579
+      warrior attack 3: 1690393680
+      warrior idle: -747480999
+      warrior walk 1: 2117477146
+      warrior walk 2: -499969968
+      warrior walk 3: 417236191
+      warrior walk 4: 1052578567
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
