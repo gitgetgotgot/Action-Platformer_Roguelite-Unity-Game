@@ -8,7 +8,6 @@ public class ConstBuffsPage : MonoBehaviour
     [Header("Main objects")]
     public Button activationButton;
     public TMP_Text activationButtonText;
-    public Button exitButton;
     public GameObject buffsHolder;
     public GameObject buffFrame;
     public ConstBuff[] constBuffs;
@@ -30,7 +29,6 @@ public class ConstBuffsPage : MonoBehaviour
             Instance = this;
         }
         activationButton.onClick.AddListener(LearnNewConstBuff);
-        exitButton.onClick.AddListener(Close);
         GameContext.selectedConstBuff = constBuffs[0];
         buffDescription.text = BuffsManager.Instance.GetBuff(constBuffs[0].id).description;
         foreach(var constBuff in constBuffs)
@@ -81,7 +79,7 @@ public class ConstBuffsPage : MonoBehaviour
             if (newBuff.required_lvl > GameContext.playerStats.level || newBuff.cost > GameContext.playerStats.money) return;
             
             GameContext.activeSave.constBuffs.Add((uint)selectedBuff.id);
-            GameContext.playerStats.ApplyNewBuff(newBuff);
+            GameContext.playerStats.ManageNewBuff(newBuff, true);
             GameContext.playerStats.SpendMoney(newBuff.cost);
             selectedBuff.isLearned = true;
             selectedBuff.GetComponent<Image>().sprite = buffBackActiveSprite;
@@ -89,13 +87,9 @@ public class ConstBuffsPage : MonoBehaviour
             moneyAmount.text = GameContext.playerStats.money.ToString();
             UpdateSelectedBuff(selectedBuff);
             AudioMixerManager.Instance.PlaySound(7);
+            GameContext.inventory.UpdateInventoryText();
         }
         
-    }
-    private void Close()
-    {
-        gameObject.SetActive(false);
-        Time.timeScale = 1.0f;
     }
     public void UpdateSelectedBuff(ConstBuff buff)
     {

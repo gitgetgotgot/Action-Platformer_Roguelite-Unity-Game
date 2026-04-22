@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    //public Artifact artifact = null;
+    public InventorySlotType slotType = InventorySlotType.isSimpleSlot;
     public int artifact_id = 0; //0 means no artifact in slot
     public Image item_sprite;
     private void Awake()
@@ -13,49 +13,64 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     }
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (slotType == InventorySlotType.isInfoSlot) return;
+
         int chosenArtifactId = GameContext.inventory.GetChosenArtifactId();
         //if this slot has artifact then take it with cursor
         if (artifact_id != 0 && chosenArtifactId == 0)
         {
-            if (gameObject.CompareTag("CraftSlot"))
+            if (slotType == InventorySlotType.isCraftSlot)
             {
                 //update craft if artifact is placed in craft slot
                 GameContext.inventory.UpdateCraft();
             }
-            else if (gameObject.CompareTag("CraftResultSlot"))
+            else if (slotType == InventorySlotType.isCraftResultSlot)
             {
                 //use artifacts if crafted item is taken
                 GameContext.inventory.UseCraftItems();
             }
-            else if (gameObject.CompareTag("ActiveSlot"))
+            else if (slotType == InventorySlotType.isActiveSlot)
             {
                 //remove buffs if artifact is taken from active slot
                 RemoveArtifactBuffs();
             }
+            else if(slotType == InventorySlotType.isGuideSlot)
+            {
+                GameContext.inventory.HideGuideTooltip();
+            }
+
             GameContext.inventory.TakeItemFromSlot(artifact_id);
             GameContext.inventory.HideTooltip();
             artifact_id = 0;
             item_sprite.enabled = false;
         }
         //else if cursor holds an item then place it to this slot
-        else if (chosenArtifactId != 0 && artifact_id == 0 && !gameObject.CompareTag("CraftResultSlot"))
+        else if (chosenArtifactId != 0 && artifact_id == 0 && slotType != InventorySlotType.isCraftResultSlot)
         {
             artifact_id = chosenArtifactId;
             GameContext.inventory.TakeArtifactFromPlayer();
             OnPointerEnter(null);
-            item_sprite.sprite = ArtifactsManager.Instance.GetArtifact(artifact_id).sprite;
+            Artifact artifact = ArtifactsManager.Instance.GetArtifact(artifact_id);
+            item_sprite.sprite = artifact.sprite;
             item_sprite.enabled = true;
-            if (gameObject.CompareTag("CraftSlot"))
+            if (slotType == InventorySlotType.isCraftSlot)
             {
                 GameContext.inventory.UpdateCraft();
             }
-            else if (gameObject.CompareTag("ActiveSlot"))
+            else if (slotType == InventorySlotType.isActiveSlot)
             {
                 //apply buffs if artifact is placed in active slot
                 ApplyArtifactBuffs();
             }
+            else if (slotType == InventorySlotType.isGuideSlot)
+            {
+                GameContext.inventory.ShowGuideTooltip(artifact.craftableArtifactId);
+            }
+            else if(slotType == InventorySlotType.isRecycleSlot)
+            {
+                GameContext.inventory.ShowRecycleBox(artifact_id);
+            }
         }
-        //exchange items
         
     }
     public void AddArtifact(int artifact_id)
@@ -74,7 +89,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
         Artifact artifact = ArtifactsManager.Instance.GetArtifact(artifact_id);
         foreach (var buff_id in artifact.buff_id_list)
         {
-            GameContext.playerStats.ApplyNewBuff(BuffsManager.Instance.GetArtifactBuff(buff_id));
+            GameContext.playerStats.ManageNewBuff(BuffsManager.Instance.GetArtifactBuff(buff_id), true);
         }
         GameContext.inventory.UpdateInventoryText();
     }
@@ -83,7 +98,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
         Artifact artifact = ArtifactsManager.Instance.GetArtifact(artifact_id);
         foreach (var buff_id in artifact.buff_id_list)
         {
-            GameContext.playerStats.RemoveBuff(BuffsManager.Instance.GetArtifactBuff(buff_id));
+            GameContext.playerStats.ManageNewBuff(BuffsManager.Instance.GetArtifactBuff(buff_id), false);
         }
         GameContext.inventory.UpdateInventoryText();
     }

@@ -10,19 +10,6 @@ public class EnemyHitbox : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("PlayerAttack"))
-        {
-            enemyController.Take_damage(25f, PlayerAttackType.isSword);
-            if(GameContext.playerPos.x > transform.position.x)
-            {
-                //apply knockback to left side
-                enemyController.ApplyKnockback(4f, false);
-            }
-            else
-            {
-                enemyController.ApplyKnockback(2f, true);
-            }
-        }
         if (collision.CompareTag("Mace_Trap") && !enemyController.isGhost)
         {
             MaceTrap maceTrap = collision.gameObject.GetComponentInParent<MaceTrap>();

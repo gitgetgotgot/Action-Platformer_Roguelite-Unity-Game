@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class GameMenuScript : MonoBehaviour
 {
+    static public GameMenuScript Instance;
+
     public GameObject pausePage;
     public GameObject settingsPage;
     public GameObject deathPage;
@@ -14,6 +16,10 @@ public class GameMenuScript : MonoBehaviour
     private Inventory inventory;
     void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
         inventory = inventoryPage.GetComponent<Inventory>();
         //pause page
         Button button = pausePage.transform.Find("Canvas/ContinueButton").GetComponent<Button>();
@@ -118,14 +124,14 @@ public class GameMenuScript : MonoBehaviour
     public void OpenConstBuffsPage()
     {
         GameContext.gameState = GameState.inConstBuffs;
+        inventoryPage.SetActive(false);
         constBuffsTreePage.SetActive(true);
-        Time.timeScale = 0.0f;
     }
     public void CloseConstBuffsPage()
     {
-        GameContext.gameState = GameState.inGame;
+        GameContext.gameState = GameState.inInventory;
+        inventoryPage.SetActive(true);
         constBuffsTreePage.SetActive(false);
-        Time.timeScale = 1.0f;
         AudioMixerManager.Instance.PlaySound(13);
     }
     public void OpenInventory()

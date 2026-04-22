@@ -57,8 +57,8 @@ Transform:
   m_GameObject: {fileID: 1470638199864110760}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.47428575, y: 0, z: -0.010000001}
-  m_LocalScale: {x: 1.4857142, y: 1, z: 1}
+  m_LocalPosition: {x: -0.485, y: 0, z: -0.010000001}
+  m_LocalScale: {x: 1.218, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 972498798061601983}
@@ -107,7 +107,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a92bbb8a99b5d6c45aff4a2e30ac2867, type: 3}
+  m_Sprite: {fileID: 632996452, guid: bc51dc29d86cc5a46a956eae0d88cbf8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -148,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 4053114398904605220}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.4, y: -2.5, z: -0.1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 4.7, y: 4.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -327,8 +327,11 @@ MonoBehaviour:
   jump_speed: 0
   xp_amount: 30
   money_amount: 10
+  damage_sound_id: 0
+  isGhost: 0
   hp_bar_holder: {fileID: 9160819358113473446}
   hp_bar: {fileID: 5267852093558456325}
+  hp_bar_scale: {x: 1.218, y: 10}
   stop_radius: 8
   attack_interval_sec: 2.75
   fireballPrefab: {fileID: 8402945627171947483, guid: d6c6f0f2afb213442a445d3f734a44a6, type: 3}

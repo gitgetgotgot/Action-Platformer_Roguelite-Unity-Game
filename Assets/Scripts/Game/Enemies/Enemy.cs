@@ -16,8 +16,8 @@ public class Enemy : MonoBehaviour
     [Header("----HP Bar----")]
     public GameObject hp_bar_holder;
     public Transform hp_bar;
+    public Vector2 hp_bar_scale;
 
-    protected float hp_bar_x_max_scale;
     protected Rigidbody2D rb;
     protected SpriteRenderer sr;
     protected float x_direction;
@@ -34,11 +34,7 @@ public class Enemy : MonoBehaviour
         rb.freezeRotation = true;
 
         current_hp = hp;
-        if (hp_bar_holder != null)
-        {
-            hp_bar_x_max_scale = hp_bar.localScale.x;
-            hp_bar_holder.SetActive(false);
-        }
+        hp_bar_holder.SetActive(false);
     }
     public virtual void Update()
     {
@@ -62,8 +58,12 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
         GameContext.enemies_destroyed++;
     }
-    public virtual void Take_damage(float dmg, PlayerAttackType attackType)
-    {
+    public virtual void Take_damage(
+        float dmg,
+        PlayerAttackType attackType,
+        bool applyKnockback = false,
+        float knockbackForce = 0
+    ) {
         if (current_hp == 0) return;
         if(magicShieldStrength > 0)
         {
@@ -87,9 +87,17 @@ public class Enemy : MonoBehaviour
         else
         {
             hp_bar_holder.SetActive(true);
-            hp_bar.localScale = new Vector3(hp_bar_x_max_scale * current_hp / hp, 1, 1);
+            hp_bar.localScale = new Vector3(hp_bar_scale.x * current_hp / hp, hp_bar_scale.y, 1);
         }
-        AudioMixerManager.Instance.PlaySound(3);
+        GameContext.playerStats.Get_Ultimate_Stack();
+        if (applyKnockback)
+        {
+            if (GameContext.playerPos.x > transform.position.x)
+                ApplyKnockback(knockbackForce, false); //apply knockback to left side
+            else
+                ApplyKnockback(knockbackForce, true);
+        }
+        AudioMixerManager.Instance.PlaySound(damage_sound_id);
     }
     public virtual void ApplyKnockback(float force, bool rightSide)
     {

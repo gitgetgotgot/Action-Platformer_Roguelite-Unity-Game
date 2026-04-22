@@ -64,7 +64,7 @@ public class RunBasedBuffsPage : MonoBehaviour
     {
         int new_buff_id = GameContext.selectedRunBasedBuff.id;
         GameContext.activeSave.runBuffs.Add((uint)new_buff_id);
-        GameContext.playerStats.ApplyNewBuff(BuffsManager.Instance.GetRunBasedBuff(new_buff_id));
+        GameContext.playerStats.ManageNewBuff(BuffsManager.Instance.GetRunBasedBuff(new_buff_id), true);
         AudioMixerManager.Instance.PlaySound(14);
         isMoving = true;
         //Time.timeScale = 1f;

@@ -66,22 +66,6 @@ public class Ghost : Enemy
         rb.linearVelocityX = current_x_speed + currentKnockbackForce;
         rb.linearVelocityY = current_y_speed;
     }
-    /*public override void Take_damage(float dmg)
-    {
-        if (current_hp == 0) return;
-        current_hp -= dmg;
-        if (current_hp <= 0)
-        {
-            current_hp = 0;
-            hp_bar_holder.SetActive(false);
-        }
-        else
-        {
-            hp_bar_holder.SetActive(true);
-            hp_bar.localScale = new Vector3(hp_bar_x_max_scale * current_hp / hp, 1, 1);
-        }
-        AudioMixerManager.Instance.PlaySound(8);
-    }*/
     public override void Attack()
     {
 

@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor.Experimental;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,8 +19,8 @@ public class Inventory : MonoBehaviour
     public TMP_Text mana_regen_bonus;
     public TMP_Text stamina_regen_bonus;
     public TMP_Text sword_dmg_bonus;
-    public TMP_Text bow_dmg_bonus;
     public TMP_Text magic_dmg_bonus;
+    public Button constUpgradesButton;
     [Header("InventorySlots")]
     public GameObject InventorySlots;
     public GameObject ActiveSlots;
@@ -32,18 +33,38 @@ public class Inventory : MonoBehaviour
     public Image tooltip;
     public TMP_Text tooltipName;
     public TMP_Text tooltipDsrtn;
+    [Header("Guide")]
+    public GameObject guideTooltip;
+    public GameObject craftingInfo;
+    public GameObject notification;
+    public InventorySlot infoSlot1;
+    public InventorySlot infoSlot2;
+    public InventorySlot infoResultSlot;
+    [Header("Recycle")]
+    public InventorySlot recycleSlot;
+    public GameObject recycleMessage;
+    public TMP_Text shardsCount;
+    public Button approve;
+    public Button decline;
 
     private int activeChosenArtifactId = 0;
+    private int recycleActiveArtifactID = 0;
     private InventorySlot[] unactiveSlots;
     private InventorySlot[] activeSlots;
-    private const int UNACTIVE_SLOTS_COUNT = 8;
+    private const int UNACTIVE_SLOTS_COUNT = 10;
     private const int ACTIVE_SLOTS_COUNT = 4;
     private void Awake()
     {
         chosenItem.enabled = false;
         tooltip.gameObject.SetActive(false);
+        guideTooltip.SetActive(false);
+        recycleMessage.SetActive(false);
+        approve.onClick.AddListener(ApproveHandler);
+        decline.onClick.AddListener(DeclineHandler);
+
         unactiveSlots = InventorySlots.GetComponentsInChildren<InventorySlot>();
         activeSlots = ActiveSlots.GetComponentsInChildren<InventorySlot>();
+        constUpgradesButton.onClick.AddListener(OpenConstBuffsPage);
     }
     private void Update()
     {
@@ -75,13 +96,16 @@ public class Inventory : MonoBehaviour
         mana_regen_bonus.text = "Mana Regen Bonus " + (stats.mana_regen * 100f - 100f).ToString() + "%";
         stamina_regen_bonus.text = "Stamina Regen Bonus " + (stats.stamina_regen * 100f - 100f).ToString() + "%";
         sword_dmg_bonus.text = "Sword Dmg Bonus " + (stats.sword_dmg_mlpr * 100f - 100f).ToString() + "%";
-        bow_dmg_bonus.text = "Bow Dmg Bonus " + (stats.bow_dmg_mlpr * 100f - 100f).ToString() + "%";
         magic_dmg_bonus.text = "Magic Dmg Bonus " + (stats.magic_dmg_mlpr * 100f - 100f).ToString() + "%";
     }
 
     public void InitInventorySlots()
     {
 
+    }
+    public void OpenConstBuffsPage()
+    {
+        GameMenuScript.Instance.OpenConstBuffsPage();
     }
     public void AddArtifact(int artifactID)
     {
@@ -137,6 +161,56 @@ public class Inventory : MonoBehaviour
     public void HideTooltip()
     {
         tooltip.gameObject.SetActive(false);
+    }
+    public void ShowGuideTooltip(int craftable_artifact_id)
+    {
+        guideTooltip.SetActive(true);
+        if (craftable_artifact_id == 0)
+        {
+            notification.SetActive(true);
+            craftingInfo.SetActive(false);
+            return;
+        }
+        notification.SetActive(false);
+        craftingInfo.SetActive(true);
+        Artifact artifact = ArtifactsManager.Instance.GetArtifact(craftable_artifact_id);
+        int child1_id = artifact.child1_artifact_id;
+        int child2_id = artifact.child2_artifact_id;
+        infoSlot1.AddArtifact(child1_id);
+        infoSlot2.AddArtifact(child2_id);
+        infoResultSlot.AddArtifact(craftable_artifact_id);
+    }
+    public void HideGuideTooltip()
+    {
+        guideTooltip.SetActive(false);
+    }
+    public void ShowRecycleBox(int artifact_id)
+    {
+        recycleMessage.SetActive(true);
+        recycleActiveArtifactID = artifact_id;
+        shardsCount.text = "x" + ArtifactsManager.Instance.GetArtifact(artifact_id).cost.ToString();
+    }
+    public void HideRecycleBox(bool break_artifact)
+    {
+        recycleSlot.RemoveArtifact();
+        recycleMessage.SetActive(false);
+        
+        if (break_artifact)
+        {
+            GameContext.playerStats.GetMoney(ArtifactsManager.Instance.GetArtifact(recycleActiveArtifactID).cost);
+        }
+        else
+        {
+            AddArtifact(recycleActiveArtifactID);
+        }
+    }
+    private void ApproveHandler()
+    {
+        HideRecycleBox(true);
+    }
+    private void DeclineHandler()
+    {
+        HideRecycleBox(false);
     }
     public void TakeItemFromSlot(int artifact_id)
     {

@@ -14,6 +14,6 @@ public class SaveData
     //lists contain identificators
     public List<uint> constBuffs = new();
     public List<uint> runBuffs = new();
-    public List<uint> inventory_unactive_items = new() { 0, 0, 0, 0, 0, 0, 0, 0 }; //8 default empty slots
+    public List<uint> inventory_unactive_items = new() { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //10 default empty slots
     public List<uint> inventory_active_items = new() { 0, 0, 0, 0 }; //4 default empty slots
 }

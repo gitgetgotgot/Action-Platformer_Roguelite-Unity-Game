@@ -129,6 +129,7 @@ public class LevelManager : MonoBehaviour
             Destroy(segment.gameObject);
         //generate new level with new segments and get start pos for player
         Vector3 playerPos = levelGenerator.GenerateLevel(LevelObjectsHolder.transform);
+        playerPos.z = -0.1f;
         player.transform.position = playerPos;
     }
     public void OnLevelFinished()
@@ -144,6 +145,8 @@ public class LevelManager : MonoBehaviour
         backgroundCanvas.enabled = true;
         yield return null;
         UpdateLevel();
+        //apply different buffs for player after level is finished (f.e. HP_Regen)
+        GameContext.playerStats.UpdateStatsOnLevelFinished();
         GameContext.activeSave.active_room++;
         SavesManager.Instance.ChangeSave();
         yield return new WaitForSeconds(1f);

@@ -12,9 +12,6 @@ TagManager:
   - PlayerAttack
   - PlayerProjectile
   - Slot
-  - ActiveSlot
-  - CraftSlot
-  - CraftResultSlot
   - EnemyHitbox
   - BuffMark
   - Flame_Trap
@@ -33,7 +30,7 @@ TagManager:
   - UI
   - Player
   - Enemies
-  - 
+  - EnemyHitbox
   - 
   - 
   - 

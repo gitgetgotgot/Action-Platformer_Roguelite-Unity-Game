@@ -117,8 +117,8 @@ Transform:
   m_GameObject: {fileID: 1679760488173739110}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.47428575, y: 0, z: -0.010000001}
-  m_LocalScale: {x: 1.4857142, y: 1, z: 1}
+  m_LocalPosition: {x: -0.485, y: 0, z: -0.010000001}
+  m_LocalScale: {x: 1.218, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6620531543615105887}
@@ -167,7 +167,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a92bbb8a99b5d6c45aff4a2e30ac2867, type: 3}
+  m_Sprite: {fileID: 632996452, guid: bc51dc29d86cc5a46a956eae0d88cbf8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -296,7 +296,7 @@ Transform:
   m_GameObject: {fileID: 5525898470909515075}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.608, y: -1.606, z: -0.1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -478,8 +478,9 @@ MonoBehaviour:
   isGhost: 1
   hp_bar_holder: {fileID: 2194930293554257290}
   hp_bar: {fileID: 6437122491987653674}
+  hp_bar_scale: {x: 1.218, y: 10}
   speedY: 1.5
-  offset_y_target: 0.5
+  offset_y_target: 2
   attack_radius: 5
   attack_interval_sec: 3
   dash_speed: 7

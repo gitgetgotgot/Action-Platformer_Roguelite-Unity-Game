@@ -27,11 +27,11 @@ public class ArtifactsManager : MonoBehaviour
         {
             new Artifact(), //id 0 is empty
             new Artifact("Wizard Flashlight", "Increases basic max Mana by 20 points",
-            artifactSprites.sprites[0], 3, new List<int>{1} ),
+            artifactSprites.sprites[0], new List<int>{1}, 5, 3 ),
             new Artifact("Soul in a Bottle", "Increases Mana Regen by 20%",
-            artifactSprites.sprites[1], 3, new List<int>{0} ),
+            artifactSprites.sprites[1], new List<int>{0}, 5, 3 ),
             new Artifact("Wizard Soul Flashlight", "Increases basic max Mana by 20 points and Mana Regen by 20%",
-            artifactSprites.sprites[2], 0, new List<int>{0, 1} )
+            artifactSprites.sprites[2], new List<int>{0, 1}, 5, 0, 1, 2 )
 
         };
     }

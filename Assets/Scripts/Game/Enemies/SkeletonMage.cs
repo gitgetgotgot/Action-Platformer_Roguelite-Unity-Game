@@ -5,6 +5,7 @@ public class SkeletonMage : Enemy
     protected Animator animator;
     public float stop_radius = 5f;
     public float attack_interval_sec = 1f;
+    public float offset_y_target = 2f;
     public GameObject fireballPrefab;
     public Transform fireballStartPos;
     public float fireballSpeed = 15f;
@@ -75,7 +76,9 @@ public class SkeletonMage : Enemy
         fireballData.dmg = dmg;
         fireballData.speed = fireballSpeed;
         Vector2 pos = fireballStartPos.position;
-        fireballData.SetVelocity((GameContext.playerPos - pos).normalized);
+        Vector2 playerPos = GameContext.playerPos;
+        playerPos.y += offset_y_target;
+        fireballData.SetVelocity((playerPos - pos).normalized);
         AudioMixerManager.Instance.PlaySound(6);
     }
 }
