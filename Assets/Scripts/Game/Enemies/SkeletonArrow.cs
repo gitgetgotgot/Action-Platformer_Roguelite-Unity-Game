@@ -26,8 +26,11 @@ public class SkeletonArrow : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
-            playerController.Take_Damage(dmg);
-            Destroy(gameObject);
+            bool playerIsHit = playerController.Take_Damage(dmg);
+            if (playerIsHit)
+            {
+                Destroy(gameObject);
+            }
         }
         else if (collision.CompareTag("Ground"))
         {

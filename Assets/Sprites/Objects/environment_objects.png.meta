@@ -128,8 +128,8 @@ TextureImporter:
       name: start_mark
       rect:
         serializedVersion: 2
-        x: 0
-        y: 448
+        x: 1
+        y: 447
         width: 64
         height: 64
       alignment: 0
@@ -150,8 +150,8 @@ TextureImporter:
       name: buff_icon
       rect:
         serializedVersion: 2
-        x: 192
-        y: 448
+        x: 262
+        y: 447
         width: 64
         height: 64
       alignment: 0
@@ -172,8 +172,8 @@ TextureImporter:
       name: shop_mark
       rect:
         serializedVersion: 2
-        x: 256
-        y: 448
+        x: 197
+        y: 447
         width: 64
         height: 64
       alignment: 0
@@ -194,8 +194,8 @@ TextureImporter:
       name: finish_mark
       rect:
         serializedVersion: 2
-        x: 64
-        y: 448
+        x: 66
+        y: 447
         width: 64
         height: 64
       alignment: 0
@@ -216,8 +216,8 @@ TextureImporter:
       name: buff_mark
       rect:
         serializedVersion: 2
-        x: 128
-        y: 448
+        x: 132
+        y: 447
         width: 64
         height: 64
       alignment: 0
@@ -238,8 +238,8 @@ TextureImporter:
       name: artifact_crate
       rect:
         serializedVersion: 2
-        x: 320
-        y: 448
+        x: 327
+        y: 447
         width: 64
         height: 64
       alignment: 0
@@ -260,8 +260,8 @@ TextureImporter:
       name: crate
       rect:
         serializedVersion: 2
-        x: 384
-        y: 448
+        x: 392
+        y: 447
         width: 64
         height: 64
       alignment: 0
@@ -282,8 +282,8 @@ TextureImporter:
       name: dark_border
       rect:
         serializedVersion: 2
-        x: 448
-        y: 448
+        x: 382
+        y: 382
         width: 64
         height: 64
       alignment: 0
@@ -304,8 +304,8 @@ TextureImporter:
       name: dark_corner
       rect:
         serializedVersion: 2
-        x: 448
-        y: 384
+        x: 447
+        y: 382
         width: 64
         height: 64
       alignment: 0
@@ -326,12 +326,12 @@ TextureImporter:
       name: BattleMark
       rect:
         serializedVersion: 2
-        x: 0
-        y: 384
-        width: 64
-        height: 64
+        x: 66
+        y: 380
+        width: 66
+        height: 66
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -340,6 +340,138 @@ TextureImporter:
       bones: []
       spriteID: 45b92cd50616cea4aa95c0aa9df8e0dd
       internalID: 180836031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall_candles_2
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 414
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60a6829fee036764f86cc670548d8187
+      internalID: 431617062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall_candles_3
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 382
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae55e2ff9c64e64469c3b3bb1f3ab037
+      internalID: 1664778912588595011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall_candles_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 382
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dfdc368eaaad174ba7ca783864cea06
+      internalID: 663582308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall_candles_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 414
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef9a2bd40387b354c9a1180d1ad1a63c
+      internalID: -260846062139945618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walls_banner
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 1
+        width: 20
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92062e2eff7c15849a0848f66a7dab09
+      internalID: 1689481577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bricks_ark
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 88
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eb84b6cddfc3f7419454824ee6ade46
+      internalID: -1909061446
       vertices: []
       indices: 
       edges: []
@@ -360,16 +492,20 @@ TextureImporter:
     nameFileIdTable:
       BattleMark: 180836031
       artifact_crate: -1576475869
+      bricks_ark: -1909061446
       buff_icon: -2793372574550831474
       buff_mark: -1694705390
       crate: -332181704
       dark_border: 1894610323
       dark_corner: 1501443876
-      environment_objects_1: 1664778912588595011
-      environment_objects_3: -260846062139945618
       finish_mark: 2147239330
       shop_mark: 3843313717868592394
       start_mark: 8622139289511946154
+      wall_candles_0: -260846062139945618
+      wall_candles_1: 663582308
+      wall_candles_2: 431617062
+      wall_candles_3: 1664778912588595011
+      walls_banner: 1689481577
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

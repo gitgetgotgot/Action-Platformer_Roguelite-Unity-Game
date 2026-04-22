@@ -455,11 +455,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 672
-        width: 156
-        height: 217
+        y: 677
+        width: 157
+        height: 212
       alignment: 9
-      pivot: {x: 0.6858974, y: 0}
+      pivot: {x: 0.6878981, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -476,12 +476,12 @@ TextureImporter:
       name: P_sword_atk_2
       rect:
         serializedVersion: 2
-        x: 157
-        y: 672
-        width: 140
-        height: 217
+        x: 158
+        y: 677
+        width: 137
+        height: 212
       alignment: 9
-      pivot: {x: 0.69285715, y: 0}
+      pivot: {x: 0.68613136, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -498,10 +498,10 @@ TextureImporter:
       name: P_sword_atk_3
       rect:
         serializedVersion: 2
-        x: 298
-        y: 672
+        x: 296
+        y: 677
         width: 56
-        height: 217
+        height: 212
       alignment: 9
       pivot: {x: 0.3214286, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -520,10 +520,10 @@ TextureImporter:
       name: P_sword_atk_4
       rect:
         serializedVersion: 2
-        x: 355
-        y: 672
+        x: 353
+        y: 677
         width: 129
-        height: 217
+        height: 212
       alignment: 9
       pivot: {x: 0.20930232, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -542,10 +542,10 @@ TextureImporter:
       name: P_sword_atk_5
       rect:
         serializedVersion: 2
-        x: 485
-        y: 672
+        x: 483
+        y: 677
         width: 160
-        height: 217
+        height: 212
       alignment: 9
       pivot: {x: 0.16875, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -564,12 +564,12 @@ TextureImporter:
       name: P_sword_atk_6
       rect:
         serializedVersion: 2
-        x: 646
-        y: 672
-        width: 159
-        height: 217
+        x: 644
+        y: 677
+        width: 126
+        height: 212
       alignment: 9
-      pivot: {x: 0.16981132, y: 0}
+      pivot: {x: 0.21428572, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -583,33 +583,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P_sword_atk_7
-      rect:
-        serializedVersion: 2
-        x: 806
-        y: 672
-        width: 159
-        height: 217
-      alignment: 9
-      pivot: {x: 0.16981132, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2caadfc887c643a43aaed36c7633fcc2
-      internalID: 1313207074
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: P_sword_stab_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 290
+        y: 513
         width: 120
         height: 163
       alignment: 9
@@ -631,7 +609,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 121
-        y: 290
+        y: 513
         width: 109
         height: 163
       alignment: 9
@@ -653,7 +631,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 231
-        y: 290
+        y: 513
         width: 95
         height: 163
       alignment: 9
@@ -675,7 +653,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 327
-        y: 290
+        y: 513
         width: 93
         height: 163
       alignment: 9
@@ -697,7 +675,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 421
-        y: 290
+        y: 513
         width: 164
         height: 163
       alignment: 9
@@ -710,6 +688,490 @@ TextureImporter:
       bones: []
       spriteID: ad63297363aff984ab135505cb6970f4
       internalID: 151200810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Dash
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 890
+        width: 101
+        height: 134
+      alignment: 9
+      pivot: {x: 0.5049505, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e3c0cdf2cbf6794793fa9fd5f25e432
+      internalID: 1672172186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Bow_Atk_1
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 513
+        width: 117
+        height: 163
+      alignment: 9
+      pivot: {x: 0.1965812, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fc2a4d80de245547ae3ec186114dbe7
+      internalID: 664119758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Bow_Atk_2
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 513
+        width: 104
+        height: 163
+      alignment: 9
+      pivot: {x: 0.22115384, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1d312bb5fb427c4295686870e3edbd5
+      internalID: -645431925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Bow_Atk_3
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 513
+        width: 101
+        height: 163
+      alignment: 9
+      pivot: {x: 0.33663365, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7cc7e8f11fcfd64ebcdc0dd99d9f4a1
+      internalID: 63518652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Bow_Atk_4
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 513
+        width: 88
+        height: 163
+      alignment: 9
+      pivot: {x: 0.38636363, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aa296310d90bd24cbe97e9d4a7ae422
+      internalID: -679832561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Sword_Ult_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 376
+        width: 48
+        height: 136
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65874b218ea9f714f97f356adc39cdea
+      internalID: 1370456160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Sword_Ult_2
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 376
+        width: 48
+        height: 136
+      alignment: 9
+      pivot: {x: 0.47916666, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 917b6c7e31bcf8d4fba1bb597edea4fa
+      internalID: -1471284086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Sword_Ult_3
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 376
+        width: 48
+        height: 136
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59f42ac2c75383041aa98d8cfa8d3788
+      internalID: -1337923033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Sword_Ult_4
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 376
+        width: 45
+        height: 136
+      alignment: 9
+      pivot: {x: 0.46666667, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbec36cc3debcf949b5dd356e11c5e0c
+      internalID: -86004897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Sword_Ult_5
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 376
+        width: 45
+        height: 136
+      alignment: 9
+      pivot: {x: 0.46666667, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52214442541f6184e959be33642b1058
+      internalID: 994960516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Sword_Ult_6
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 376
+        width: 45
+        height: 136
+      alignment: 9
+      pivot: {x: 0.46666667, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1eba7099eb1a45489d9e046e5f93213
+      internalID: -2139299594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Bow_Ult_1
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 349
+        width: 119
+        height: 163
+      alignment: 9
+      pivot: {x: 0.19327731, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebf3fa9fe91cd3c49a237385bd5920e9
+      internalID: 153399014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Bow_Ult_2
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 349
+        width: 106
+        height: 163
+      alignment: 9
+      pivot: {x: 0.21698113, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12b4778393d00364b968d9f037958f3b
+      internalID: 562910176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Bow_Ult_3
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 349
+        width: 103
+        height: 163
+      alignment: 9
+      pivot: {x: 0.33009708, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ba7f207f1d20f441a88ec56388d5e09
+      internalID: -1260771914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Bow_Ult_4
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 349
+        width: 88
+        height: 163
+      alignment: 9
+      pivot: {x: 0.38636363, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d7b2002f0db28a4f8e065b5bbacd4c2
+      internalID: 1809405458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Arrow
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 873
+        width: 74
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0bf0eb2045f110449966a0966bdb02a
+      internalID: 1677873777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Ultimate_Arrow
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 880
+        width: 76
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30355d7fe1ad80c4295a769a8e6241df
+      internalID: 252913763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Ultimate_Effect_1
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 218
+        width: 61
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00ae66dc167f5194f919897b6c881924
+      internalID: -1831584372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Ultimate_Effect_2
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 201
+        width: 155
+        height: 33
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ee18189ebf58f74eb4cab036adb3c18
+      internalID: -1028553259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Ultimate_Effect_3
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 235
+        width: 230
+        height: 59
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89671d81c7dd3f34b99ff736daecdce5
+      internalID: 1863647374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Ultimate_Effect_4
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 295
+        width: 236
+        height: 80
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 972fd2986738e2341b51f274f5deda5f
+      internalID: 1043473041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Ultimate_Effect_5
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 376
+        width: 242
+        height: 105
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5636d4cfeda2cf46b54cd6b78afb23e
+      internalID: -827935025
       vertices: []
       indices: 
       edges: []
@@ -728,7 +1190,29 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      P_Arrow: 1677873777
+      P_Bow_Atk_1: 664119758
+      P_Bow_Atk_2: -645431925
+      P_Bow_Atk_3: 63518652
+      P_Bow_Atk_4: -679832561
+      P_Bow_Ult_1: 153399014
+      P_Bow_Ult_2: 562910176
+      P_Bow_Ult_3: -1260771914
+      P_Bow_Ult_4: 1809405458
+      P_Dash: 1672172186
       P_Idle: 483601142
+      P_Sword_Ult_1: 1370456160
+      P_Sword_Ult_2: -1471284086
+      P_Sword_Ult_3: -1337923033
+      P_Sword_Ult_4: -86004897
+      P_Sword_Ult_5: 994960516
+      P_Sword_Ult_6: -2139299594
+      P_Ultimate_Arrow: 252913763
+      P_Ultimate_Effect_1: -1831584372
+      P_Ultimate_Effect_2: -1028553259
+      P_Ultimate_Effect_3: 1863647374
+      P_Ultimate_Effect_4: 1043473041
+      P_Ultimate_Effect_5: -827935025
       P_face_camera: -6174136901676310512
       P_jump: -1393525774
       P_run1: -1321020277

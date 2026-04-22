@@ -47,8 +47,8 @@ public class BuffsManager : MonoBehaviour
             new Buff(BuffType.STAMINA, 25f, 2, "Stamina II: Basic Stamina is increased by 50 points",  5, 80, buffSprites.sprites[11]),
             //Defence
             new Buff(BuffType.DEF_BUFF, 10f, 1, "Defence I: Defence is increased by 10 points",  2, 80, buffSprites.sprites[12]),
-            new Buff(BuffType.DEF_BUFF, 20f, 2, "Defence II: Defence is increased by 30 points", 3, 80,  buffSprites.sprites[13]),
-            new Buff(BuffType.DEF_BUFF, 30f, 3, "Defence III: Defence is increased by 60 points",  4, 80, buffSprites.sprites[14]),
+            new Buff(BuffType.DEF_BUFF, 15f, 2, "Defence II: Defence is increased by 25 points", 3, 80,  buffSprites.sprites[13]),
+            new Buff(BuffType.DEF_BUFF, 15f, 3, "Defence III: Defence is increased by 40 points",  4, 80, buffSprites.sprites[14]),
             //Crit Rate
             new Buff(BuffType.CRIT_RATE, 10f, 1, "Crit Rate I: Crit Rate is increased by 10%", 3, 80,  buffSprites.sprites[15]),
             new Buff(BuffType.CRIT_RATE, 15f, 2, "Crit Rate II: Crit Rate is increased by 25%",  4, 80, buffSprites.sprites[16]),
@@ -62,9 +62,9 @@ public class BuffsManager : MonoBehaviour
         runBasedBuffs = new List<Buff>()
         {
             //bow dmg up
-            new Buff(BuffType.BOW_BUFF, 20f, 1, "Bow Dmg I: Sword damage is increased by 20%", runBasedBuffSprites.sprites[0]),
-            new Buff(BuffType.BOW_BUFF, 20f, 2, "Bow Dmg II: Sword damage is increased by 40%", runBasedBuffSprites.sprites[1]),
-            new Buff(BuffType.BOW_BUFF, 20f, 3, "Bow Dmg III: Sword damage is increased by 60%", runBasedBuffSprites.sprites[2]),
+            new Buff(BuffType.MAGIC_BUFF, 20f, 1, "MagicBow Dmg I: MagicBow damage is increased by 20%", runBasedBuffSprites.sprites[0]),
+            new Buff(BuffType.MAGIC_BUFF, 20f, 2, "MagicBow Dmg II: MagicBow damage is increased by 40%", runBasedBuffSprites.sprites[1]),
+            new Buff(BuffType.MAGIC_BUFF, 20f, 3, "MagicBow Dmg III: MagicBow damage is increased by 60%", runBasedBuffSprites.sprites[2]),
             //sword dmg up
             new Buff(BuffType.SWORD_BUFF, 20f, 1, "Sword Dmg I: Sword damage is increased by 20%", runBasedBuffSprites.sprites[3]),
             new Buff(BuffType.SWORD_BUFF, 20f, 2, "Sword Dmg II: Sword damage is increased by 40%", runBasedBuffSprites.sprites[4]),

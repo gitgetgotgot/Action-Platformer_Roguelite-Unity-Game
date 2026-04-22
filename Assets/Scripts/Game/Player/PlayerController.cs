@@ -1,21 +1,28 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     private enum PlayerState
     {
-        Idle, Jump, Run, Dash, SwordAttack1, SwordAttack2, SwordAttack3
+        Idle, Jump, Run, Dash,
+        SwordAttack1, SwordAttack2, SwordAttack3, SwordUltimate,
+        MagicBowAttack, MagicBowUltimate
     }
+
     private PlayerState currentState = PlayerState.Idle;
     private PlayerState newState = PlayerState.Idle;
     private readonly string IDLE_STATE = "Idle";
     private readonly string JUMP_STATE = "Jump";
     private readonly string RUN_STATE = "Run";
-    private readonly string DASH_STATE = "Run";
+    private readonly string DASH_STATE = "Dash";
     private readonly string SWORD_ATTACK_1_STATE = "SwordAttack1";
     private readonly string SWORD_ATTACK_2_STATE = "SwordAttack2";
     private readonly string SWORD_ATTACK_3_STATE = "SwordAttack3";
+    private readonly string SWORD_ULTIMATE_STATE = "SwordUltimate";
+    private readonly string MAGIC_BOW_ATTACK_STATE = "MagicBowAttack";
+    private readonly string MAGIC_BOW_ULTIMATE_STATE = "MagicBowUltimate";
 
     [Header("Basic Parameters")]
     public float walk_V = 1f;
@@ -25,6 +32,8 @@ public class PlayerController : MonoBehaviour
     public float dmg_cd = 0.5f;
     public float stamina_usage = 50f;
     public float mana_bow_usage = 50f;
+    public float SwordBasicDmg = 25f;
+    public float MagicBowBasicDmg = 50f;
     [Header("Collision Options")]
     public LayerMask groundMask;
     public float groundDetectDistance = 0.1f;
@@ -34,15 +43,27 @@ public class PlayerController : MonoBehaviour
     public Inventory inventory;
     public PlayerStats stats;
     public GameObject arrowPrefab;
+    public GameObject arrowUltimatePrefab;
+    public Transform arrowStartPos;
+    [Header("SwordColliders")]
+    public BoxCollider2D swordStabCollider;
+    public BoxCollider2D swordSwingCollider;
+    public Transform swordSwingColliderPivot;
+    public BoxCollider2D swordUltimateCollider;
+    public LayerMask enemyHitboxMask;
+    public SwordUltimateEffect ultimateEffectLeft;
+    public SwordUltimateEffect ultimateEffectRight;
 
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer sr;
     private BoxCollider2D boxCollider;
+    private WeaponType activeWeapon = WeaponType.isSword;
     private bool isGrounded = false;
     private bool shouldJump = false;
     private bool shouldDash = false;
     private bool shouldAttack = false;
+    private bool shouldActivateUltimateAttack = false;
     private bool isDashing = false;
     private float timeDashing = 0f;
     private float dashDir = 0f;
@@ -51,7 +72,6 @@ public class PlayerController : MonoBehaviour
 
     private float dmg_cd_time_point;
     private bool isAttacking = false;
-    private int active_weapon_id = 0;
     private string activeShopName = "";
 
     //knockback
@@ -59,8 +79,14 @@ public class PlayerController : MonoBehaviour
     private float knockbackForceDelta;
     private float timeKnockbackStarted;
     private bool hasKnockback;
+    
     //collided platform
     BoxCollider2D platformCollider = null;
+
+    //enemies
+    HashSet<Enemy> damagedEnemies = new();
+    //array of 20 colliders to check hits on enemies
+    Collider2D[] results = new Collider2D[20];
 
     private void Awake()
     {
@@ -73,56 +99,172 @@ public class PlayerController : MonoBehaviour
         rb.freezeRotation = true;
         stats = new PlayerStats();
         stats.Init_Stats(hud_Manager);
-        hud_Manager.ChangeWeapon(active_weapon_id);
+        hud_Manager.ChangeWeapon(activeWeapon);
         GameContext.playerStats = stats;
         GameContext.hudManager = hud_Manager;
         dmg_cd_time_point = Time.time;
 
         animator.Play(IDLE_STATE);
-    }
-    public void ShootArrow() {
-        GameObject arrow = Instantiate(arrowPrefab);
-        PlayerArrow arrowData = arrow.GetComponent<PlayerArrow>();
-        arrowData.dmg = 50f;
-        arrowData.speedX = 15f;
-        Vector2 startPos = transform.position;
-        startPos.y += 0.6f;
-        arrow.transform.position = startPos;
-        Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        arrowData.SetStartDirection((mouseWorldPos - startPos).normalized);
-        AudioMixerManager.Instance.PlaySound(5);
-    }
 
+        DeactivateSwordStabCollider();
+    }
+    public void ShootArrow(int isUltimate) {
+        if (isUltimate == 1)
+        {
+            GameObject arrow = Instantiate(arrowUltimatePrefab);
+            PlayerArrow arrowData = arrow.GetComponent<PlayerArrow>();
+            arrowData.dmg = stats.magic_ultimate_basic_dmg * stats.magic_dmg_mlpr;
+            arrowData.speedX = 20f;
+            arrow.transform.position = arrowStartPos.position;
+            Vector2 direction;
+            if (lookDirection > 0) direction = new Vector2(1f, 0f);
+            else direction = new Vector2(-1f, 0f);
+            arrowData.SetStartDirection(direction);
+            AudioMixerManager.Instance.PlaySound(5);
+        }
+        else
+        {
+            Use_MANA(mana_bow_usage);
+            GameObject arrow = Instantiate(arrowPrefab);
+            PlayerArrow arrowData = arrow.GetComponent<PlayerArrow>();
+            arrowData.dmg = stats.magic_basic_dmg * stats.magic_dmg_mlpr;
+            arrowData.speedX = 15f;
+            Vector3 startPos = arrowStartPos.position;
+            startPos.y += 0.2f;
+            if (lookDirection > 0) startPos.x += 2f;
+            else startPos.x -= 2f;
+            arrow.transform.position = arrowStartPos.position;
+            arrowData.SetStartDirection((startPos - arrowData.transform.position).normalized);
+            //Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //arrowData.SetStartDirection((mouseWorldPos - startPos).normalized);
+            AudioMixerManager.Instance.PlaySound(5);
+        }
+    }
+    public void ActivateSwordUltimateEffect()
+    {
+        ultimateEffectLeft.ActivateEffect();
+        ultimateEffectRight.ActivateEffect();
+    }
+    public void DeactivateSwordUltimateEffect()
+    {
+        ultimateEffectLeft.DeactivateEffect();
+        ultimateEffectRight.DeactivateEffect();
+    }
+    public void CheckUltimateHits()
+    {
+        damagedEnemies.Clear();
+        CheckSwordUltimateHit(swordUltimateCollider);
+    }
+    private void Attack()
+    {
+        if (GameContext.attackOutsideAreaIsAllowed ||
+                !GameContext.attackOutsideAreaIsAllowed && GameContext.playerIsInDesignatedArea)
+        {
+            if (activeWeapon == WeaponType.isMagicBow && stats.mana < mana_bow_usage) return;
+                shouldAttack = true;
+            horizontalValue = 0f;
+        }
+    }
+    public void ActivateSwordStabCollider()
+    {
+        damagedEnemies.Clear();
+        swordStabCollider.enabled = true;
+    }
+    public void DeactivateSwordStabCollider()
+    {
+        swordStabCollider.enabled = false;
+    }
+    public void ActivateSwordSwingCollider(float start_pivot_angle)
+    {
+        damagedEnemies.Clear();
+        swordSwingCollider.enabled = true;
+        swordSwingColliderPivot.localRotation = Quaternion.Euler(0, 0, start_pivot_angle);
+    }
+    public void DeactivateSwordSwingCollider()
+    {
+        swordSwingCollider.enabled = false;
+    }
+    public void CheckSwordSwingColliderHit(float pivot_angle)
+    {
+        swordSwingColliderPivot.localRotation = Quaternion.Euler(0, 0, pivot_angle);
+        CheckSwordBasicHit(swordSwingCollider);
+    }
+    public void CheckSwordStabColliderHit()
+    {
+        CheckSwordBasicHit(swordStabCollider);
+    }
+    public void CheckSwordBasicHit(BoxCollider2D boxCollider)
+    {
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.useLayerMask = true;
+        filter.useTriggers = true;
+        filter.SetLayerMask(enemyHitboxMask);
+
+        int count = boxCollider.Overlap(filter, results);
+
+        for (int i = 0; i < count; i++)
+        {
+            Enemy e = results[i].GetComponent<Enemy>();
+            if (e != null && !damagedEnemies.Contains(e))
+            {
+                damagedEnemies.Add(e);
+                bool isCrit = stats.IsCritHit();
+                float damage = stats.GetSwordDamage(false, isCrit);
+                e.Take_damage(damage, PlayerAttackType.isSword, true, 2f);
+                DamageTextPoolManager.instance.ActivateDamageText(damage, isCrit, e.gameObject.transform.position);
+            }
+        }
+    }
+    public void CheckSwordUltimateHit(BoxCollider2D boxCollider)
+    {
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.useLayerMask = true;
+        filter.useTriggers = true;
+        filter.SetLayerMask(enemyHitboxMask);
+
+        int count = boxCollider.Overlap(filter, results);
+
+        for (int i = 0; i < count; i++)
+        {
+            Enemy e = results[i].GetComponent<Enemy>();
+            if (e != null && !damagedEnemies.Contains(e))
+            {
+                damagedEnemies.Add(e);
+                bool isCrit = stats.IsCritHit();
+                float damage = stats.GetSwordDamage(true, isCrit);
+                e.Take_damage(damage, PlayerAttackType.isSword, true, 5f);
+                DamageTextPoolManager.instance.ActivateDamageText(damage, isCrit, e.gameObject.transform.position);
+            }
+        }
+    }
     void Update() {
         if (stats.hp == 0) return;
         stats.Update_Stats();
 
+        isGrounded = IsGrounded();
+
         //change weapon
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            if (active_weapon_id == 0) active_weapon_id = 1;
-            else active_weapon_id = 0;
-            hud_Manager.ChangeWeapon(active_weapon_id);
-        }
-        //const buffs page
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            gameMenuScript.OpenConstBuffsPage();
+            if (activeWeapon == WeaponType.isSword) activeWeapon = WeaponType.isMagicBow;
+            else activeWeapon = WeaponType.isSword;
+            hud_Manager.ChangeWeapon(activeWeapon);
         }
         //horizontal = Input.GetAxis("Horizontal");
         if (Input.GetKey(KeyCode.A)) horizontalValue = -1f;
         else if (Input.GetKey(KeyCode.D)) horizontalValue = 1f;
         else horizontalValue = 0f;
         //attack
-        shouldAttack = false;
         if (Input.GetMouseButtonDown(0) && GameContext.gameState == GameState.inGame && !isDashing)
-            if(GameContext.attackOutsideAreaIsAllowed ||
-                !GameContext.attackOutsideAreaIsAllowed && GameContext.playerIsInDesignatedArea) {
-                shouldAttack = true;
-                horizontalValue = 0f;
-            }
-
-        isGrounded = IsGrounded();
+            Attack();
+        //ultimate
+        if (Input.GetKeyDown(KeyCode.Q) && GameContext.gameState == GameState.inGame &&
+            !isDashing && !isAttacking && isGrounded && stats.Activate_Ultimate())
+        {
+            shouldActivateUltimateAttack = true;
+            horizontalValue = 0f;
+        }
+        
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             shouldJump = true;
         if (Input.GetKeyDown(KeyCode.LeftShift) && stats.stamina >= stamina_usage)
@@ -130,7 +272,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S) && platformCollider != null)
             StartCoroutine(DropFromPlatform());
 
-        if (isAttacking || shouldAttack) horizontalValue = 0f;
+        if (isAttacking || shouldAttack || shouldActivateUltimateAttack) horizontalValue = 0f;
 
         ChangePlayerSpriteDirection();
 
@@ -152,6 +294,8 @@ public class PlayerController : MonoBehaviour
             inventory.AddArtifact(1); //give "wizard flashlight"
             inventory.AddArtifact(2); //give "soul in a bottle"
         }
+        if (Input.GetKeyDown(KeyCode.U))
+            stats.Get_Ultimate_Stack();
         ////
 
         //buy artifact from shop if it's available
@@ -163,13 +307,6 @@ public class PlayerController : MonoBehaviour
             stats.SpendMoney(30);
         }
 
-        //attack
-        if (shouldAttack)
-        {
-            //shouldAttack = false;
-            //isAttacking = true;
-            //animator.Play(SWORD_ATTACK_1_STATE);
-        }
         //knockback
         if (hasKnockback)
         {
@@ -221,31 +358,33 @@ public class PlayerController : MonoBehaviour
     {
         AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo(0);
 
+        //STOP ATTACK STATES
+        //sword
         if (state.IsName(SWORD_ATTACK_1_STATE) && state.normalizedTime >= 1.0f) {
-            newState = PlayerState.SwordAttack2;
-            //return;
-
-            //stop attack state
             isAttacking = false;
             newState = PlayerState.Idle;
         }
-
-        if (state.IsName(SWORD_ATTACK_2_STATE) && state.normalizedTime >= 1.0f)
-        {
-            newState = PlayerState.SwordAttack3;
-            //return;
-
-            //stop attack state
+        else if (state.IsName(SWORD_ATTACK_2_STATE) && state.normalizedTime >= 1.0f) {
             isAttacking = false;
             newState = PlayerState.Idle;
         }
-        if (state.IsName(SWORD_ATTACK_3_STATE) && state.normalizedTime >= 1.0f)
-        {
-            newState = PlayerState.Idle;
+        else if (state.IsName(SWORD_ATTACK_3_STATE) && state.normalizedTime >= 1.0f) {
             isAttacking = false;
-            //return;
-
-            //stop attack state
+            newState = PlayerState.Idle;
+        }
+        else if (state.IsName(SWORD_ULTIMATE_STATE) && state.normalizedTime >= 1.0f)
+        {
+            isAttacking = false;
+            newState = PlayerState.Idle;
+        }
+        //magic bow
+        else if (state.IsName(MAGIC_BOW_ATTACK_STATE) && state.normalizedTime >= 1.0f)
+        {
+            isAttacking = false;
+            newState = PlayerState.Idle;
+        }
+        else if (state.IsName(MAGIC_BOW_ULTIMATE_STATE) && state.normalizedTime >= 1.0f)
+        {
             isAttacking = false;
             newState = PlayerState.Idle;
         }
@@ -260,19 +399,49 @@ public class PlayerController : MonoBehaviour
                 newState = PlayerState.SwordAttack1;
             else if (state.IsName(SWORD_ATTACK_2_STATE))
                 newState = PlayerState.SwordAttack2;
-            else
+            else if (state.IsName(SWORD_ATTACK_3_STATE))
                 newState = PlayerState.SwordAttack3;
+            else if (state.IsName(SWORD_ULTIMATE_STATE))
+                newState = PlayerState.SwordUltimate;
+            else if (state.IsName(MAGIC_BOW_ATTACK_STATE))
+                newState = PlayerState.MagicBowAttack;
+            else if (state.IsName(MAGIC_BOW_ULTIMATE_STATE))
+                newState = PlayerState.MagicBowUltimate;
         }
         if (shouldAttack)
         {
             shouldAttack = false;
             isAttacking = true;
-            if (state.IsName(SWORD_ATTACK_1_STATE) && state.normalizedTime >= 0.8f)
-                newState = PlayerState.SwordAttack2;
-            else if (state.IsName(SWORD_ATTACK_2_STATE) && state.normalizedTime >= 0.8f)
-                newState = PlayerState.SwordAttack3;
-            else if (!state.IsName(SWORD_ATTACK_3_STATE))
-                newState = PlayerState.SwordAttack1;
+            if(activeWeapon == WeaponType.isSword)
+            {
+                if (state.IsName(SWORD_ATTACK_1_STATE) && state.normalizedTime >= 0.8f)
+                    //go from sword first attack to second
+                    newState = PlayerState.SwordAttack2;
+                else if (state.IsName(SWORD_ATTACK_2_STATE) && state.normalizedTime >= 0.8f)
+                    //go from second swored attack to third
+                    newState = PlayerState.SwordAttack3;
+                else if (!state.IsName(SWORD_ATTACK_3_STATE))
+                    //otherwise use first attack
+                    newState = PlayerState.SwordAttack1;
+            }
+            else if (activeWeapon == WeaponType.isMagicBow)
+            {
+                newState = PlayerState.MagicBowAttack;
+            }
+
+        }
+        if (shouldActivateUltimateAttack)
+        {
+            isAttacking = true;
+            shouldActivateUltimateAttack = false;
+            if (activeWeapon == WeaponType.isSword)
+            {
+                newState = PlayerState.SwordUltimate;
+            }
+            else if (activeWeapon == WeaponType.isMagicBow)
+            {
+                newState = PlayerState.MagicBowUltimate;
+            }
         }
 
         if (isDashing) newState = PlayerState.Dash;
@@ -310,6 +479,21 @@ public class PlayerController : MonoBehaviour
                     animator.Play(SWORD_ATTACK_3_STATE);
                     break;
                 }
+            case PlayerState.SwordUltimate:
+                {
+                    animator.Play(SWORD_ULTIMATE_STATE);
+                    break;
+                }
+            case PlayerState.MagicBowAttack:
+                {
+                    animator.Play(MAGIC_BOW_ATTACK_STATE);
+                    break;
+                }
+            case PlayerState.MagicBowUltimate:
+                {
+                    animator.Play(MAGIC_BOW_ULTIMATE_STATE);
+                    break;
+                }
         }
     }
     public void ApplyKnockback(float force, bool rightSide)
@@ -327,9 +511,9 @@ public class PlayerController : MonoBehaviour
         timeKnockbackStarted = Time.time;
         hasKnockback = true;
     }
-    public void Decrease_HP(float value)
+    public void Decrease_HP(float damage)
     {
-        stats.hp -= value;
+        stats.hp -= damage * (100.0f / (100.0f + stats.def)) * (1 - stats.dmg_reduction);
         if (stats.hp <= 0)
         {
             stats.hp = 0;
@@ -337,10 +521,6 @@ public class PlayerController : MonoBehaviour
             OnPlayerDeath();
         }
         hud_Manager.Set_Hp_Bar(stats.hp / stats.maxHP);
-    }
-    public void Decrease_DEF(float value)
-    {
-        stats.def -= value;
     }
     public bool Use_MANA(float value)
     {
@@ -375,13 +555,15 @@ public class PlayerController : MonoBehaviour
         if (stats.stamina + value > stats.maxStamina) stats.stamina = stats.maxStamina;
         hud_Manager.Set_Stamina_Bar(stats.stamina / stats.maxStamina);
     }
-    public void Take_Damage(float dmg) {
+    public bool Take_Damage(float dmg) {
         if (CanTakeDamage() && !isDashing)
         {
             dmg_cd_time_point = Time.time;
             Decrease_HP(dmg);
             AudioMixerManager.Instance.PlaySound(0);
+            return true;
         }
+        return false;
     }
     public bool CanTakeDamage() {
         if (Time.time - dmg_cd_time_point >= dmg_cd) return true;

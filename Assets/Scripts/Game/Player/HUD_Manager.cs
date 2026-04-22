@@ -8,8 +8,13 @@ public class HUD_Manager : MonoBehaviour
     public Image healthBar;
     public Image manaBar;
     public Image staminaBar;
+    public Image ultimateBar;
+    public Image weaponHolder;
+    public Sprite weaponHolderUsual;
+    public Sprite weaponHolderUltimate;
     public TMP_Text money, lvl;
     public float bars_width = 156f;
+    public float ultimate_bar_height = 136f;
     public Sprite PlayerSword;
     public Sprite PlayerBow;
     public Image ActiveWeaponSlot;
@@ -48,13 +53,13 @@ public class HUD_Manager : MonoBehaviour
         money.text = value.ToString();
     }
 
-    public void ChangeWeapon(int weapon_id)
+    public void ChangeWeapon(WeaponType weapon_type)
     {
-        if(weapon_id == 0)
+        if(weapon_type == WeaponType.isSword)
         {
             ActiveWeaponSlot.sprite = PlayerSword;
         }
-        else if(weapon_id == 1)
+        else if(weapon_type == WeaponType.isMagicBow)
         {
             ActiveWeaponSlot.sprite = PlayerBow;
         }
@@ -74,5 +79,18 @@ public class HUD_Manager : MonoBehaviour
     public void HideShopArtifactTooltip()
     {
         tooltip.SetActive(false);
+    }
+    public void UpdateWeaponHolder(bool isUltimate, float value)
+    {
+        if (isUltimate)
+        {
+            weaponHolder.sprite = weaponHolderUltimate;
+        }
+        else
+        {
+            weaponHolder.sprite = weaponHolderUsual;
+        }
+        RectTransform rect = ultimateBar.rectTransform;
+        rect.sizeDelta = new Vector2(rect.sizeDelta.x, value * ultimate_bar_height);
     }
 }

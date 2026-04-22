@@ -1,3 +1,4 @@
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEditor.Experimental;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public class PlayerStats {
     }
     //BUFFS
     //basic stats
-    private float basicHP, basicDEF, basicMANA, basicStamina; 
+    private float basicHP = 200f, basicDEF = 0f, basicMANA = 100f, basicStamina = 100f; 
     public float hp, def, mana, stamina;
     public float maxHP, maxMANA, maxStamina;
     public float hp_bonus, def_bonus, mana_bonus, stamina_bonus;
@@ -20,14 +21,20 @@ public class PlayerStats {
     //speed stats
     public float walk_speed, attack_speed;
     //dmg stats
+    public float dmg_reduction;
     public float basic_crit_dmg, basic_crit_rate;
     public float crit_dmg, crit_rate;
     public float crit_dmg_bonus, crit_rate_bonus;
-    public float sword_dmg_mlpr, bow_dmg_mlpr, magic_dmg_mlpr;
+    public float sword_basic_dmg, magic_basic_dmg;
+    public float sword_ultimate_basic_dmg, magic_ultimate_basic_dmg;
+    public float sword_dmg_mlpr, magic_dmg_mlpr;
     //SKILLS
     public bool hasDoubleJump = false, hasPlungeAttack = false;
+    //ULTIMATE
+    public float ultimate_stacks = 0;
+    public float ultimate_stacks_max = 10;
 
-    public int level, money, current_xp, xp_for_next_lvl, first_lvl_xp_needed;
+    public int level = 0, money = 0, current_xp = 0, xp_for_next_lvl = 0, first_lvl_xp_needed = 100;
 
     private HUD_Manager hud_manager;
     public void Init_Stats(HUD_Manager HUD_Manager) {
@@ -43,10 +50,10 @@ public class PlayerStats {
         Init_Start_Stats();
         //apply available const buffs
         foreach (var const_buff_id in GameContext.activeSave.constBuffs)
-            ApplyNewBuff(BuffsManager.Instance.GetBuff((int)const_buff_id));
+            ManageNewBuff(BuffsManager.Instance.GetBuff((int)const_buff_id), true);
         //apply available temporary buffs
         foreach (var run_based_buff_id in GameContext.activeSave.runBuffs)
-            ApplyNewBuff(BuffsManager.Instance.GetRunBasedBuff((int)run_based_buff_id));
+            ManageNewBuff(BuffsManager.Instance.GetRunBasedBuff((int)run_based_buff_id), true);
         //apply unactive artifacts
         for(int i = 0; i < 8; i++) {
             uint unactive_slot_artifact_id = GameContext.activeSave.inventory_unactive_items[i];
@@ -64,7 +71,7 @@ public class PlayerStats {
                 Artifact artifact = ArtifactsManager.Instance.GetArtifact((int)active_slot_artifact_id);
                 foreach (var buff_id in artifact.buff_id_list)
                 {
-                    ApplyNewBuff(BuffsManager.Instance.GetArtifactBuff(buff_id));
+                    ManageNewBuff(BuffsManager.Instance.GetArtifactBuff(buff_id), true);
                 }
             }
         }
@@ -74,19 +81,35 @@ public class PlayerStats {
         def = basicDEF;
         mana = maxMANA = basicMANA;
         stamina = maxStamina = basicStamina;
+
+        dmg_reduction = 0f;
         crit_dmg = basic_crit_dmg;
         crit_rate = basic_crit_rate;
-        sword_dmg_mlpr = bow_dmg_mlpr = magic_dmg_mlpr = 1.0f;
+        sword_dmg_mlpr = magic_dmg_mlpr = 1.0f;
+        sword_basic_dmg = 25f;
+        magic_basic_dmg = 50f;
+        sword_ultimate_basic_dmg = 50f;
+        magic_ultimate_basic_dmg = 75f;
 
         hp_bonus = def_bonus = mana_bonus = stamina_bonus = 0.0f;
         crit_dmg_bonus = crit_rate_bonus = 0.0f;
 
         hp_mplr = def_mplr = mana_mplr = stamina_mplr = 1.0f;
         walk_speed = attack_speed = 1.0f;
-        hp_regen = mana_regen = stamina_regen = 1.0f;
+        hp_regen = 0.0f;
+        mana_regen = stamina_regen = 1.0f;
+
         //mana and stamina regeneration is 5% of max value in 1 second
         mana_regen_delta = maxMANA * 0.1f;
         stamina_regen_delta = maxStamina * 0.1f;
+
+        ultimate_stacks = ultimate_stacks_max;
+        hud_manager.UpdateWeaponHolder(ultimate_stacks == ultimate_stacks_max, ultimate_stacks / ultimate_stacks_max);
+    }
+    public void UpdateStatsOnLevelFinished()
+    {
+        //heal player by hp_regen% of maxHP
+        if(hp_regen > 0) Heal(maxHP * hp_regen);
     }
     public void GetXP(int amount)
     {
@@ -113,8 +136,32 @@ public class PlayerStats {
     {
         money = 0;
     }
+    public void Get_Ultimate_Stack()
+    {
+        ultimate_stacks += 0.5f; //each hit gives 0.5 stacks
+        if (ultimate_stacks > ultimate_stacks_max)
+            ultimate_stacks = ultimate_stacks_max;
+        hud_manager.UpdateWeaponHolder(ultimate_stacks == ultimate_stacks_max, ultimate_stacks / ultimate_stacks_max);
+    }
+    public bool Activate_Ultimate()
+    {
+        if (ultimate_stacks == ultimate_stacks_max)
+        {
+            ultimate_stacks = 0;
+            hud_manager.UpdateWeaponHolder(ultimate_stacks == ultimate_stacks_max, ultimate_stacks / ultimate_stacks_max);
+            return true;
+        }
+        else return false;
+    }
+    public void Heal(float value)
+    {
+        hp += value;
+        if (hp > maxHP) hp = maxHP;
+        hud_manager.Set_Hp_Bar(hp / maxHP);
+    }
     public void Update_max_hp() {
         maxHP = (basicHP + hp_bonus) * hp_mplr;
+        hud_manager.Set_Hp_Bar(hp / maxHP);
     }
     public void Update_max_mana() {
         maxMANA = (basicMANA + mana_bonus) * mana_mplr;
@@ -134,6 +181,37 @@ public class PlayerStats {
         crit_rate = basic_crit_rate + crit_rate_bonus;
     }
 
+    public bool IsCritHit()
+    {
+        return Random.Range(0, 1000) < (int)(crit_rate * 10f); //[0.0%, 100.0%]
+    }
+    public float GetSwordDamage(bool isUltimateDamage, bool isCrit)
+    {
+        if (isUltimateDamage)
+        {
+            if (isCrit) return sword_ultimate_basic_dmg * sword_dmg_mlpr * (1.0f + crit_dmg * 0.01f);
+            else return sword_ultimate_basic_dmg * sword_dmg_mlpr;
+        }
+        else
+        {
+            if (isCrit) return sword_basic_dmg * sword_dmg_mlpr * (1.0f + crit_dmg * 0.01f);
+            else return sword_basic_dmg * sword_dmg_mlpr;
+        }
+    }
+    public float GetMagicDamage(bool isUltimateDamage, bool isCrit)
+    {
+        if(isUltimateDamage)
+        {
+            if (isCrit) return magic_ultimate_basic_dmg * magic_dmg_mlpr * (1.0f + crit_dmg * 0.01f);
+            else return magic_ultimate_basic_dmg * magic_dmg_mlpr;
+        }
+        else
+        {
+            if (isCrit) return magic_basic_dmg * magic_dmg_mlpr * (1.0f + crit_dmg * 0.01f);
+            else return magic_basic_dmg * magic_dmg_mlpr;
+        }
+    }
+
     public void Update_Stats() {
         mana += mana_regen_delta * mana_regen * Time.deltaTime;
         if(mana > maxMANA) mana = maxMANA;
@@ -144,25 +222,41 @@ public class PlayerStats {
         hud_manager.Set_Mana_Bar(mana / maxMANA);
         hud_manager.Set_Stamina_Bar(stamina / maxStamina);
     }
-    public void ApplyNewBuff(Buff buff) {
+    public void ManageNewBuff(Buff buff, bool apply) {
+        // apply = true - add buff
+        // apply = false - remove buff
         switch(buff.buffType)
         {
             //BUFFS
             case BuffType.HP:
                 {
-                    hp_bonus += buff.power; hp += buff.power;
-                    hud_manager.Set_Hp_Bar(hp / maxHP);
+                    if (apply)
+                    {
+                        hp_bonus += buff.power; hp += buff.power;
+                    }
+                    else
+                    {
+                        hp_bonus -= buff.power; hp -= buff.power;
+                    }
                     Update_max_hp();
                     break;
                 }
             case BuffType.HP_REGEN:
                 {
-                    hp_regen += buff.power;
+                    if (apply) hp_regen += buff.power * 0.01f;
+                    else hp_regen -= buff.power * 0.01f;
                     break;
                 }
             case BuffType.HP_UP:
                 {
-                    hp_mplr += buff.power * 0.01f; hp *= hp_mplr;
+                    if (apply)
+                    {
+                        hp_mplr += buff.power * 0.01f; hp *= hp_mplr;
+                    }
+                    else
+                    {
+                        hp *= 1 / hp_mplr; hp_mplr -= buff.power * 0.01f; hp *= hp_mplr;
+                    }
                     Update_max_hp();
                     break;
                 }
@@ -174,106 +268,116 @@ public class PlayerStats {
                 }
             case BuffType.MANA:
                 {
-                    mana_bonus += buff.power; mana += buff.power;
+                    if(apply)
+                    {
+                        mana_bonus += buff.power; mana += buff.power;
+                    }
+                    else
+                    {
+                        mana_bonus -= buff.power; mana -= buff.power;
+                    }
                     Update_max_mana();
                     break;
                 }
             case BuffType.MANA_REGEN:
                 {
-                    mana_regen += buff.power * 0.01f;
+                    if (apply) mana_regen += buff.power * 0.01f;
+                    else mana_regen -= buff.power * 0.01f;
                     break;
                 }
             case BuffType.MANA_UP:
                 {
-                    mana_mplr += buff.power * 0.01f;
+                    if (apply) mana_mplr += buff.power * 0.01f;
+                    else mana_mplr -= buff.power * 0.01f;
                     Update_max_mana();
                     break;
                 }
             case BuffType.DEF_BUFF:
                 {
-                    def_bonus += buff.power;
+                    if (apply) def_bonus += buff.power;
+                    else def_bonus -= buff.power;
                     Update_def();
+                    break;
+                }
+            case BuffType.DMG_REDUCTION:
+                {
+                    if (apply) dmg_reduction += buff.power * 0.01f;
+                    else dmg_reduction -= buff.power * 0.01f;
                     break;
                 }
             case BuffType.STAMINA:
                 {
-                    stamina_bonus += buff.power; stamina += buff.power;
+                    if (apply)
+                    {
+                        stamina_bonus += buff.power; stamina += buff.power;
+                    }
+                    else
+                    {
+                        stamina_bonus -= buff.power; stamina -= buff.power;
+                    }
                     Update_max_stamina();
                     break;
                 }
             case BuffType.STAMINA_REGEN:
                 {
-                    stamina_regen += buff.power * 0.01f;
+                    if (apply) stamina_regen += buff.power * 0.01f;
+                    else stamina_regen -= buff.power * 0.01f;
                     break;
                 }
             case BuffType.STAMINA_UP:
                 {
-                    stamina_mplr += buff.power * 0.01f;
+                    if (apply) stamina_mplr += buff.power * 0.01f;
+                    else stamina_mplr -= buff.power * 0.01f;
                     Update_max_stamina();
                     break;
                 }
             case BuffType.CRIT_DMG:
                 {
-                    crit_dmg_bonus += buff.power;
+                    if (apply) crit_dmg_bonus += buff.power;
+                    else crit_dmg_bonus -= buff.power;
                     Update_Crit_Dmg();
                     break;
                 }
             case BuffType.CRIT_RATE:
                 {
-                    crit_rate_bonus += buff.power;
+                    if (apply) crit_rate_bonus += buff.power;
+                    else crit_rate_bonus -= buff.power;
                     Update_Crit_Rate();
                     break;
                 }
             case BuffType.SWORD_BUFF:
                 {
-                    sword_dmg_mlpr += buff.power * 0.01f;
-                    break;
-                }
-            case BuffType.BOW_BUFF:
-                {
-                    bow_dmg_mlpr += buff.power * 0.01f;
+                    if (apply) sword_dmg_mlpr += buff.power * 0.01f;
+                    else sword_dmg_mlpr -= buff.power * 0.01f;
                     break;
                 }
             case BuffType.MAGIC_BUFF:
                 {
-                    magic_dmg_mlpr += buff.power * 0.01f;
+                    if (apply) magic_dmg_mlpr += buff.power * 0.01f;
+                    else magic_dmg_mlpr -= buff.power * 0.01f;
                     break;
                 }
 
             //SKILLS
             case BuffType.DOUBLE_JUMP:
                 {
-                    hasDoubleJump = true;
+                    if(apply) hasDoubleJump = true;
+                    else hasDoubleJump = false;
                     break;
                 }
             case BuffType.PLUNGE_ATTACK:
                 {
-                    hasPlungeAttack = true;
+                    if(apply) hasPlungeAttack = true;
+                    else hasPlungeAttack = false;
                     break;
                 }
             case BuffType.ARTIFACT:
                 {
-                    GameContext.inventory.AddArtifact(1);
+                    //lvl here is used as artifact ID
+                    GameContext.inventory.AddArtifact(buff.lvl);
                     break;
                 }
         }
 
-    }
-    public void RemoveBuff(Buff buff)
-    {
-        switch(buff.buffType)
-        {
-            case BuffType.MANA:
-                {
-                    mana_bonus -= buff.power; mana -= buff.power;
-                    Update_max_mana();
-                    break;
-                }
-            case BuffType.MANA_REGEN:
-                {
-                    mana_regen -= buff.power * 0.01f;
-                    break;
-                }
-        }
     }
 }

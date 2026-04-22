@@ -2,11 +2,10 @@ using UnityEngine;
 
 public class SkeletonShooter : Enemy
 {
-    static readonly string ATTACK_STATE = "Attack";
-
     protected Animator animator;
     public float stop_radius = 5f;
     public float attack_interval_sec = 1f;
+    public float offset_y_target = 2f;
     public GameObject arrowPrefab;
     public Transform arrowStartPosRight;
     public Transform arrowStartPosLeft;
@@ -79,20 +78,20 @@ public class SkeletonShooter : Enemy
         SkeletonArrow arrowData = arrow.GetComponent<SkeletonArrow>();
         arrowData.dmg = this.dmg;
         arrowData.speedX = arrow_speed;
-        
+        Vector2 direction;
         if (looks_right)
         {
+            direction = new Vector2(1f, 0.1f);
             arrow.transform.position = arrowStartPosRight.position;
-            //arrowData.speedX = arrow_speed;
         }
         else
         {
+            direction = new Vector2(-1f, 0.1f);
             arrow.transform.position = arrowStartPosLeft.position;
-            //arrowData.speedX = -arrow_speed;
         }
-        Vector2 playerPos = GameContext.playerPos;
-        playerPos.y += 0.6f;
-        Vector2 direction = (playerPos - (Vector2)arrow.transform.position).normalized;
+        //Vector2 playerPos = GameContext.playerPos;
+        //playerPos.y += offset_y_target;
+        //Vector2 direction = (playerPos - (Vector2)arrow.transform.position).normalized;
         arrowData.SetStartDirection(direction);
         AudioMixerManager.Instance.PlaySound(1);
     }
