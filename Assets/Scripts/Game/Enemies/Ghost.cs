@@ -24,41 +24,45 @@ public class Ghost : Enemy
         {
             if (!death_anim_triggered)
             {
-                /*animator.SetTrigger("isDead");
-                x_direction = 0;
-                death_anim_triggered = true;*/
                 OnDeath();
                 AudioMixerManager.Instance.PlaySound(9);
             }
             return;
         }
         //change direction based on player X pos
-        x_direction = GameContext.playerPos.x - rb.position.x;
-        float y_direction = GameContext.playerPos.y + offset_y_target - rb.position.y;
-        if (x_direction > 0)
+        if (canWalk)
         {
-            current_x_speed += speed * Time.deltaTime;
-            if(current_x_speed > speed) current_x_speed = speed;
-            sr.flipX = false;
+            x_direction = GameContext.playerPos.x - rb.position.x;
+            float y_direction = GameContext.playerPos.y + offset_y_target - rb.position.y;
+            if (x_direction > 0)
+            {
+                current_x_speed += speed * Time.deltaTime;
+                if (current_x_speed > speed) current_x_speed = speed;
+                sr.flipX = false;
+            }
+            else
+            {
+                current_x_speed -= speed * Time.deltaTime;
+                if (current_x_speed < -speed) current_x_speed = -speed;
+                sr.flipX = true;
+            }
+
+            if (y_direction > 0)
+            {
+                current_y_speed += speedY * Time.deltaTime;
+                if (current_y_speed > speedY) current_y_speed = speedY;
+            }
+            else
+            {
+                current_y_speed -= speedY * Time.deltaTime;
+                if (current_y_speed < -speedY) current_y_speed = -speedY;
+            }
         }
         else
         {
-            current_x_speed -= speed * Time.deltaTime;
-            if (current_x_speed < -speed) current_x_speed = -speed;
-            sr.flipX = true;
+            current_x_speed = 0f;
+            current_y_speed = 0f;
         }
-
-        if (y_direction > 0)
-        {
-            current_y_speed += speedY * Time.deltaTime;
-            if (current_y_speed > speedY) current_y_speed = speedY;
-        }
-        else
-        {
-            current_y_speed -= speedY * Time.deltaTime;
-            if (current_y_speed < -speedY) current_y_speed = -speedY;
-        }
-
     }
     
     public override void FixedUpdate()

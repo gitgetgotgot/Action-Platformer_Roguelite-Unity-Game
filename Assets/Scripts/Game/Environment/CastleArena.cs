@@ -68,16 +68,17 @@ public class CastleArena : MonoBehaviour
             enemy_id_list.Add(new List<int>());
             enemy_id_list.Add(new List<int>());
             List<int> list = enemy_id_list[0];
-            list.Add(0);
-            list.Add(0);
-            list.Add(0);
-            list.Add(1);
+            list.Add(Random.Range(0, 2));
+            list.Add(Random.Range(0, 2));
             list = enemy_id_list[1];
-            list.Add(1);
-            list.Add(1);
+            list.Add(Random.Range(0, 2));
+            list.Add(Random.Range(0, 2));
+            list.Add(Random.Range(0, 2));
             list = enemy_id_list[2];
-            list.Add(2);
-            list.Add(2);
+            list.Add(Random.Range(0, 2));
+            list.Add(Random.Range(1, 3));
+            list.Add(Random.Range(1, 3));
+
         }
         else if (GameContext.activeSave.active_room == 2)
         {
@@ -87,17 +88,18 @@ public class CastleArena : MonoBehaviour
             enemy_id_list.Add(new List<int>());
             enemy_id_list.Add(new List<int>());
             List<int> list = enemy_id_list[0];
-            list.Add(0);
-            list.Add(1);
-            list.Add(0);
-            list.Add(1);
+            list.Add(Random.Range(0, 2));
+            list.Add(Random.Range(0, 2));
+            list.Add(Random.Range(0, 2));
+            list.Add(Random.Range(0, 2));
             list = enemy_id_list[1];
-            list.Add(1);
-            list.Add(2);
-            list.Add(3);
+            list.Add(Random.Range(0, 3));
+            list.Add(Random.Range(2, 4));
+            list.Add(Random.Range(2, 4));
             list = enemy_id_list[2];
-            list.Add(4);
-            list.Add(4);
+            list.Add(Random.Range(0, 2));
+            list.Add(Random.Range(3, 5));
+            list.Add(Random.Range(3, 5));
         }
         else if(GameContext.activeSave.active_room > 2)
         {
@@ -105,6 +107,7 @@ public class CastleArena : MonoBehaviour
             wave_current = 0;
             enemy_id_list.Add(new List<int>());
             List<int> list = enemy_id_list[0];
+            list.Add(4);
             list.Add(4);
         }
 

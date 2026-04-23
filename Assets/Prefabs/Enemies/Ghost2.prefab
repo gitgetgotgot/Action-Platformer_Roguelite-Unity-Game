@@ -469,13 +469,15 @@ MonoBehaviour:
   enemy_id: 0
   hp: 200
   healing: 0
-  dmg: 5
+  dmg: 15
   speed: 3
   jump_speed: 0
   xp_amount: 40
   money_amount: 15
   damage_sound_id: 0
   isGhost: 1
+  walkAfterPlayerIsClose: 0
+  closeDistance: 1
   hp_bar_holder: {fileID: 2194930293554257290}
   hp_bar: {fileID: 6437122491987653674}
   hp_bar_scale: {x: 1.218, y: 10}

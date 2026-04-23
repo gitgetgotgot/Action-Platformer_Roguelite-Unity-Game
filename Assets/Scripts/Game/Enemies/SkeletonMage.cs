@@ -34,20 +34,28 @@ public class SkeletonMage : Enemy
             return;
         }
         //change direction based on player X pos
-        x_direction = GameContext.playerPos.x - rb.position.x;
-        if (x_direction > 0)
+        if (canWalk)
         {
-            x_direction = 1f;
-            sr.flipX = false;
-            looks_right = true;
+            x_direction = GameContext.playerPos.x - rb.position.x;
+            if (x_direction > 0)
+            {
+                x_direction = 1f;
+                sr.flipX = false;
+                looks_right = true;
+            }
+            else
+            {
+                x_direction = -1f;
+                sr.flipX = true;
+                looks_right = false;
+            }
+            animator.SetBool("isWalking", true);
         }
         else
         {
-            x_direction = -1f;
-            sr.flipX = true;
-            looks_right = false;
+            x_direction = 0f;
+            animator.SetBool("isWalking", false);
         }
-        animator.SetBool("isWalking", true);
 
         //check if near enough the player to stop walking
         bool isStanding = false;

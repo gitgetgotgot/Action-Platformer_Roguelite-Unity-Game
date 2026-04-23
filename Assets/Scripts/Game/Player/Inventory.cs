@@ -86,17 +86,17 @@ public class Inventory : MonoBehaviour
         lvl.text = GameContext.activeSave.playerName + " Lvl " + stats.level.ToString();
         xp.text = "XP " + stats.current_xp.ToString() + " / " + stats.xp_for_next_lvl.ToString();
 
-        hp.text = "HP " + stats.hp.ToString() + " / " + stats.maxHP.ToString();
-        mana.text = "Mana " + stats.mana.ToString() + " / " + stats.maxMANA.ToString();
-        stamina.text = "Stamina " + stats.stamina.ToString() + " / " + stats.maxStamina.ToString();
-        def.text = "Def " + stats.def.ToString();
-        crit_rate.text = "Crit Rate " + stats.crit_rate.ToString() + "%";
-        crit_dmg.text = "Crit Dmg " + stats.crit_dmg.ToString() + "%";
-        dmg_reduction.text = "Dmg Reduction 0%";
-        mana_regen_bonus.text = "Mana Regen Bonus " + (stats.mana_regen * 100f - 100f).ToString() + "%";
-        stamina_regen_bonus.text = "Stamina Regen Bonus " + (stats.stamina_regen * 100f - 100f).ToString() + "%";
-        sword_dmg_bonus.text = "Sword Dmg Bonus " + (stats.sword_dmg_mlpr * 100f - 100f).ToString() + "%";
-        magic_dmg_bonus.text = "Magic Dmg Bonus " + (stats.magic_dmg_mlpr * 100f - 100f).ToString() + "%";
+        hp.text = "HP " + stats.hp.ToString("0.0") + " / " + stats.maxHP.ToString("0.0");
+        mana.text = "Mana " + stats.mana.ToString("0.0") + " / " + stats.maxMANA.ToString("0.0");
+        stamina.text = "Stamina " + stats.stamina.ToString("0.0") + " / " + stats.maxStamina.ToString("0.0");
+        def.text = "Def " + stats.def.ToString("0.0");
+        crit_rate.text = "Crit Rate " + stats.crit_rate.ToString("0.0") + "%";
+        crit_dmg.text = "Crit Dmg " + stats.crit_dmg.ToString("0.0") + "%";
+        dmg_reduction.text = "Dmg Reduction " + (stats.dmg_reduction * 100f).ToString("0.0") + "%";
+        mana_regen_bonus.text = "Mana Regen Bonus " + (stats.mana_regen * 100f - 100f).ToString("0.0") + "%";
+        stamina_regen_bonus.text = "Stamina Regen Bonus " + (stats.stamina_regen * 100f - 100f).ToString("0.0") + "%";
+        sword_dmg_bonus.text = "Sword Dmg Bonus " + (stats.sword_dmg_mlpr * 100f - 100f).ToString("0.0") + "%";
+        magic_dmg_bonus.text = "Magic Dmg Bonus " + (stats.magic_dmg_mlpr * 100f - 100f).ToString("0.0") + "%";
     }
 
     public void InitInventorySlots()
@@ -109,6 +109,7 @@ public class Inventory : MonoBehaviour
     }
     public void AddArtifact(int artifactID)
     {
+        //add artifact to inventory if free slot is available
         foreach(InventorySlot slot in unactiveSlots)
         {
             if(slot.artifact_id == 0)

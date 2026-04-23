@@ -114,7 +114,13 @@ public class BuffsManager : MonoBehaviour
         artifactBuffs = new List<Buff>()
         {
             new Buff(BuffType.MANA_REGEN, 20.0f, 1, null, null),
-            new Buff(BuffType.MANA, 20.0f, 1, null, null)
+            new Buff(BuffType.MANA, 20.0f, 1, null, null),
+            new Buff(BuffType.SWORD_BUFF, 10.0f, 1, null, null),
+            new Buff(BuffType.CRIT_RATE, 10.0f, 1, null, null),
+            new Buff(BuffType.DMG_REDUCTION, 10.0f, 1, null, null),
+            new Buff(BuffType.HP_UP, 10.0f, 1, null, null),
+            new Buff(BuffType.MAGIC_BUFF, 10.0f, 1, null, null),
+            new Buff(BuffType.MANA_UP, 10.0f, 1, null, null)
         };
     }
     public Buff GetBuff(int id)

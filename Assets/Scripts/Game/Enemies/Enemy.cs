@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
     public int money_amount = 5;
     public int damage_sound_id = 0;
     public bool isGhost = false;
+    public bool walkAfterPlayerIsClose = false;
+    public float closeDistance = 1f;
     [Header("----HP Bar----")]
     public GameObject hp_bar_holder;
     public Transform hp_bar;
@@ -20,6 +22,7 @@ public class Enemy : MonoBehaviour
 
     protected Rigidbody2D rb;
     protected SpriteRenderer sr;
+    protected BoxCollider2D boxCollider;
     protected float x_direction;
     protected float current_hp;
     protected float knockbackForceDelta;
@@ -27,17 +30,30 @@ public class Enemy : MonoBehaviour
     protected float timeKnockbackStarted;
     protected bool hasKnockback = false;
     protected int magicShieldStrength = 0;
+    protected bool canWalk = true;
     public virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        boxCollider = GetComponent<BoxCollider2D>();
         rb.freezeRotation = true;
 
         current_hp = hp;
         hp_bar_holder.SetActive(false);
+        if (walkAfterPlayerIsClose)
+        {
+            canWalk = false;
+        }
     }
     public virtual void Update()
     {
+        if (!canWalk)
+        {
+            if((GameContext.playerPos - rb.position).magnitude <= closeDistance)
+            {
+                canWalk = true;
+            }
+        }
         if(hasKnockback)
         {
             if(Time.time - timeKnockbackStarted > 0.25f)
@@ -58,16 +74,17 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
         GameContext.enemies_destroyed++;
     }
-    public virtual void Take_damage(
+    public virtual bool Take_damage(
         float dmg,
         PlayerAttackType attackType,
         bool applyKnockback = false,
         float knockbackForce = 0
     ) {
-        if (current_hp == 0) return;
+        //damage is dealt only if enemy loses HP
+        if (current_hp == 0) return false;
         if(magicShieldStrength > 0)
         {
-            if (attackType != PlayerAttackType.isMagicArrow) return;
+            if (attackType != PlayerAttackType.isMagicArrow) return false;
             else if(attackType == PlayerAttackType.isMagicArrow)
             {
                 magicShieldStrength--;
@@ -76,9 +93,10 @@ public class Enemy : MonoBehaviour
                     sr.color = Color.white;
                 }
             }
-            return;
+            return false;
         }
         current_hp -= dmg;
+        canWalk = true; //allow enemy to walk after being hit by player if it can't walk
         if(current_hp <= 0)
         {
             current_hp = 0;
@@ -98,6 +116,7 @@ public class Enemy : MonoBehaviour
                 ApplyKnockback(knockbackForce, true);
         }
         AudioMixerManager.Instance.PlaySound(damage_sound_id);
+        return true;
     }
     public virtual void ApplyKnockback(float force, bool rightSide)
     {

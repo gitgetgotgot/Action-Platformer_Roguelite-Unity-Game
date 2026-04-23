@@ -1,5 +1,7 @@
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -17,9 +19,9 @@ public class LevelManager : MonoBehaviour
     private bool playerCanActivateRunBasedBuff = false;
 
     //shop
-    int artifact1_id = 1;
-    int artifact2_id = 2;
-    int artifact3_id = 3;
+    int shop_artifact1_id = 1;
+    int shop_artifact2_id = 2;
+    int shop_artifact3_id = 3;
     void Awake()
     {
         if (Instance == null)
@@ -33,6 +35,7 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        GameContext.gameState = GameState.inGame;
     }
 
     private void Start()
@@ -45,18 +48,18 @@ public class LevelManager : MonoBehaviour
     {
         if (shopMarkName == "ShopMark1")
         {
-            if (artifact1_id == 0) return;
-            GameContext.hudManager.UpdateShopArtifactTooltip(ArtifactsManager.Instance.GetArtifact(artifact1_id), 30);
+            if (shop_artifact1_id == 0) return;
+            GameContext.hudManager.UpdateShopArtifactTooltip(ArtifactsManager.Instance.GetArtifact(shop_artifact1_id), 30);
         }
         else if (shopMarkName == "ShopMark2")
         {
-            if (artifact2_id == 0) return;
-            GameContext.hudManager.UpdateShopArtifactTooltip(ArtifactsManager.Instance.GetArtifact(artifact2_id), 30);
+            if (shop_artifact2_id == 0) return;
+            GameContext.hudManager.UpdateShopArtifactTooltip(ArtifactsManager.Instance.GetArtifact(shop_artifact2_id), 30);
         }
         else if (shopMarkName == "ShopMark3")
         {
-            if (artifact3_id == 0) return;
-            GameContext.hudManager.UpdateShopArtifactTooltip(ArtifactsManager.Instance.GetArtifact(artifact3_id), 30);
+            if (shop_artifact3_id == 0) return;
+            GameContext.hudManager.UpdateShopArtifactTooltip(ArtifactsManager.Instance.GetArtifact(shop_artifact3_id), 30);
         }
         GameContext.hudManager.ShowShopArtifactTooltip();
     }
@@ -65,18 +68,18 @@ public class LevelManager : MonoBehaviour
     {
         if (shopMarkName == "ShopMark1")
         {
-            GameContext.inventory.AddArtifact(artifact1_id);
-            artifact1_id = 0;
+            GameContext.inventory.AddArtifact(shop_artifact1_id);
+            shop_artifact1_id = 0;
         }
         else if (shopMarkName == "ShopMark2")
         {
-            GameContext.inventory.AddArtifact(artifact2_id);
-            artifact2_id = 0;
+            GameContext.inventory.AddArtifact(shop_artifact2_id);
+            shop_artifact2_id = 0;
         }
         else if (shopMarkName == "ShopMark3")
         {
-            GameContext.inventory.AddArtifact(artifact3_id);
-            artifact3_id = 0;
+            GameContext.inventory.AddArtifact(shop_artifact3_id);
+            shop_artifact3_id = 0;
         }
     }
     public void GiveNewRunBasedBuff()
@@ -90,33 +93,53 @@ public class LevelManager : MonoBehaviour
             GameContext.gameState = GameState.inRunBasedBuffs;
         }
     }
+    public void UpdateAvailableShopArtifacts()
+    {
+        int[] ids = { 1, 2, 4, 5, 7, 8, 10, 11}; //any except 3, 6, 9 and 12
+        // Shuffle
+        for (int i = 7; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            (ids[i], ids[j]) = (ids[j], ids[i]);
+        }
+        shop_artifact1_id = ids[0];
+        shop_artifact2_id = ids[1];
+        shop_artifact3_id = ids[2];
+    }
     public void UpdateAvailableBuffs()
     {
+        //get 3 available buffs
+        int max_id = 30;
         int id1, id2, id3;
-        if (GameContext.activeSave.active_room == 1)
+        List<uint> playerBuffs = GameContext.activeSave.runBuffs;
+        HashSet<int> available_ids = new HashSet<int>();
+
+        for (int i = 0; i <= max_id; i++)
+            available_ids.Add(i);
+
+        foreach (uint id in playerBuffs)
+            available_ids.Remove((int)id);
+
+        List<int> list = available_ids.ToList();
+
+        // Shuffle
+        for (int i = list.Count - 1; i > 0; i--)
         {
-            id1 = 16; id2 = 19; id3 = 12;
+            int j = Random.Range(0, i + 1);
+            (list[i], list[j]) = (list[j], list[i]);
         }
-        else if (GameContext.activeSave.active_room == 2)
-        {
-            id1 = 31; id2 = 28; id3 = 6;
-        }
-        else if(GameContext.activeSave.active_room == 3)
-        {
-            id1 = 3; id2 = 9; id3 = 19;
-        }
-        else
-        {
-            id1 = 16; id2 = 19; id3 = 12;
-        }
-        //choose appropriate buffs
-        
+        id1 = list[0];
+        id2 = list[1];
+        id3 = list[2];
+
+
         //put them on the page
         RunBasedBuffsPage.Instance.UpdateAvailableRunBuffs(id1, id2, id3);
     }
     public void SpawnEnemy(int id)
     {
-        Instantiate(enemyPrefabs[id]).transform.position = GameContext.playerPos + new Vector2(2f, 2f);
+        Vector3 startPos = GameContext.playerPos;
+        Instantiate(enemyPrefabs[id]).transform.position = startPos + new Vector3(2f, 2f, -0.1f);
     }
     public GameObject SpawnEnemyById(int enemy_id)
     {
@@ -131,6 +154,9 @@ public class LevelManager : MonoBehaviour
         Vector3 playerPos = levelGenerator.GenerateLevel(LevelObjectsHolder.transform);
         playerPos.z = -0.1f;
         player.transform.position = playerPos;
+        //update shop artifacts (even if there is no shop :) )
+        UpdateAvailableShopArtifacts();
+        Debug.Log("Current room = " + GameContext.activeSave.active_room.ToString());
     }
     public void OnLevelFinished()
     {
@@ -139,6 +165,7 @@ public class LevelManager : MonoBehaviour
 
     public IEnumerator FinishLevel()
     {
+        GameContext.activeSave.active_room++;
         //wait for 1 second when player finishes level
         yield return new WaitForSeconds(1f);
         //show black screen with "saving" label
@@ -147,7 +174,6 @@ public class LevelManager : MonoBehaviour
         UpdateLevel();
         //apply different buffs for player after level is finished (f.e. HP_Regen)
         GameContext.playerStats.UpdateStatsOnLevelFinished();
-        GameContext.activeSave.active_room++;
         SavesManager.Instance.ChangeSave();
         yield return new WaitForSeconds(1f);
         backgroundCanvas.enabled = false;

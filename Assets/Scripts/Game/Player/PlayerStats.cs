@@ -88,8 +88,8 @@ public class PlayerStats {
         sword_dmg_mlpr = magic_dmg_mlpr = 1.0f;
         sword_basic_dmg = 25f;
         magic_basic_dmg = 50f;
-        sword_ultimate_basic_dmg = 50f;
-        magic_ultimate_basic_dmg = 75f;
+        sword_ultimate_basic_dmg = 75f;
+        magic_ultimate_basic_dmg = 100f;
 
         hp_bonus = def_bonus = mana_bonus = stamina_bonus = 0.0f;
         crit_dmg_bonus = crit_rate_bonus = 0.0f;

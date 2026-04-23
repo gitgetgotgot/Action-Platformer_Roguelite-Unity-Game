@@ -32,8 +32,6 @@ public class PlayerController : MonoBehaviour
     public float dmg_cd = 0.5f;
     public float stamina_usage = 50f;
     public float mana_bow_usage = 50f;
-    public float SwordBasicDmg = 25f;
-    public float MagicBowBasicDmg = 50f;
     [Header("Collision Options")]
     public LayerMask groundMask;
     public float groundDetectDistance = 0.1f;
@@ -82,6 +80,7 @@ public class PlayerController : MonoBehaviour
     
     //collided platform
     BoxCollider2D platformCollider = null;
+    bool isDroppingFromPlatform = false;
 
     //enemies
     HashSet<Enemy> damagedEnemies = new();
@@ -210,8 +209,8 @@ public class PlayerController : MonoBehaviour
                 damagedEnemies.Add(e);
                 bool isCrit = stats.IsCritHit();
                 float damage = stats.GetSwordDamage(false, isCrit);
-                e.Take_damage(damage, PlayerAttackType.isSword, true, 2f);
-                DamageTextPoolManager.instance.ActivateDamageText(damage, isCrit, e.gameObject.transform.position);
+                if (e.Take_damage(damage, PlayerAttackType.isSword, true, 2f))
+                    DamageTextPoolManager.instance.ActivateDamageText(damage, isCrit, e.gameObject.transform.position);
             }
         }
     }
@@ -232,8 +231,8 @@ public class PlayerController : MonoBehaviour
                 damagedEnemies.Add(e);
                 bool isCrit = stats.IsCritHit();
                 float damage = stats.GetSwordDamage(true, isCrit);
-                e.Take_damage(damage, PlayerAttackType.isSword, true, 5f);
-                DamageTextPoolManager.instance.ActivateDamageText(damage, isCrit, e.gameObject.transform.position);
+                if (e.Take_damage(damage, PlayerAttackType.isSword, true, 5f))
+                    DamageTextPoolManager.instance.ActivateDamageText(damage, isCrit, e.gameObject.transform.position);
             }
         }
     }
@@ -269,14 +268,17 @@ public class PlayerController : MonoBehaviour
             shouldJump = true;
         if (Input.GetKeyDown(KeyCode.LeftShift) && stats.stamina >= stamina_usage)
             shouldDash = true;
-        if (Input.GetKeyDown(KeyCode.S) && platformCollider != null)
+        if (Input.GetKeyDown(KeyCode.S) && !isDroppingFromPlatform && platformCollider != null)
+        {
+            isDroppingFromPlatform = true;
             StartCoroutine(DropFromPlatform());
+        }
 
         if (isAttacking || shouldAttack || shouldActivateUltimateAttack) horizontalValue = 0f;
 
         ChangePlayerSpriteDirection();
 
-        ////temporary controls
+        ////TEST FEATURES
         if (Input.GetKeyDown(KeyCode.Alpha1)) LevelManager.Instance.SpawnEnemy(0);
         if (Input.GetKeyDown(KeyCode.Alpha2)) LevelManager.Instance.SpawnEnemy(1);
         if (Input.GetKeyDown(KeyCode.Alpha3)) LevelManager.Instance.SpawnEnemy(2);
@@ -291,8 +293,14 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
-            inventory.AddArtifact(1); //give "wizard flashlight"
-            inventory.AddArtifact(2); //give "soul in a bottle"
+            inventory.AddArtifact(1); //give "Wizard Flashlight"
+            inventory.AddArtifact(2); //give "Soul in a Bottle"
+            inventory.AddArtifact(4); //give "Gauntlet MK1"
+            inventory.AddArtifact(5); //give "Rage Gauntlet"
+            inventory.AddArtifact(7); //give "Shield MK1"
+            inventory.AddArtifact(8); //give "Life Shield"
+            inventory.AddArtifact(10); //give "Wizard Amulet"
+            inventory.AddArtifact(11); //give "Magic Necklace"
         }
         if (Input.GetKeyDown(KeyCode.U))
             stats.Get_Ultimate_Stack();
@@ -415,14 +423,17 @@ public class PlayerController : MonoBehaviour
             if(activeWeapon == WeaponType.isSword)
             {
                 if (state.IsName(SWORD_ATTACK_1_STATE) && state.normalizedTime >= 0.8f)
+                {
                     //go from sword first attack to second
                     newState = PlayerState.SwordAttack2;
+                }
                 else if (state.IsName(SWORD_ATTACK_2_STATE) && state.normalizedTime >= 0.8f)
                     //go from second swored attack to third
                     newState = PlayerState.SwordAttack3;
                 else if (!state.IsName(SWORD_ATTACK_3_STATE))
                     //otherwise use first attack
                     newState = PlayerState.SwordAttack1;
+                AudioMixerManager.Instance.PlaySound(4);
             }
             else if (activeWeapon == WeaponType.isMagicBow)
             {
@@ -437,6 +448,7 @@ public class PlayerController : MonoBehaviour
             if (activeWeapon == WeaponType.isSword)
             {
                 newState = PlayerState.SwordUltimate;
+
             }
             else if (activeWeapon == WeaponType.isMagicBow)
             {
@@ -574,6 +586,14 @@ public class PlayerController : MonoBehaviour
         GameContext.activeSave.active_room = 1;
         GameContext.activeSave.level = stats.level;
         GameContext.activeSave.money = 0;
+        isAttacking = false;
+        isDashing = false;
+        isDroppingFromPlatform = false;
+        isGrounded = false;
+        shouldActivateUltimateAttack = false;
+        shouldAttack = false;
+        shouldDash = false;
+        shouldJump = false;
         stats.ClearMoney();
         //clear temporary buffs
         ClearRunBasedSkills();
@@ -607,6 +627,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         Physics2D.IgnoreCollision(boxCollider, platformCollider, false);
         platformCollider = null;
+        isDroppingFromPlatform = false;
     }
     private void ChangePlayerSpriteDirection() {
         if (horizontalValue > 0f)

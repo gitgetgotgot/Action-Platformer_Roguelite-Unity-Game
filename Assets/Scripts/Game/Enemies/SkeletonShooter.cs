@@ -10,7 +10,6 @@ public class SkeletonShooter : Enemy
     public Transform arrowStartPosRight;
     public Transform arrowStartPosLeft;
     public float arrow_speed = 15f;
-    public bool canWalk = true;
     protected float last_attack_time = 0f;
     private bool looks_right = true;
     private bool death_anim_triggered = false;
@@ -33,6 +32,8 @@ public class SkeletonShooter : Enemy
             return;
         }
        
+        if (canWalk)
+        {
             //change direction based on player X pos
             x_direction = GameContext.playerPos.x - rb.position.x;
             if (x_direction > 0)
@@ -48,13 +49,15 @@ public class SkeletonShooter : Enemy
                 looks_right = false;
             }
             animator.SetBool("isWalking", true);
-
-        if (!canWalk)
+        }
+        else
         {
+            animator.SetBool("isWalking", false);
             x_direction = 0f;
         }
-            //check if near enough the player to stop walking
-            bool isStanding = false;
+        
+        //check if near enough the player to stop walking
+        bool isStanding = false;
         if ((GameContext.playerPos - rb.position).magnitude <= stop_radius)
         {
             x_direction = 0f;

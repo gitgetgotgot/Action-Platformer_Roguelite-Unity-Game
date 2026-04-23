@@ -13,6 +13,15 @@ MonoBehaviour:
   m_Name: _Artifacts
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 6470532127045375218, guid: f11a0f09789459f41bc7f7c8fe0e011c, type: 3}
-  - {fileID: -4528937619208538868, guid: f11a0f09789459f41bc7f7c8fe0e011c, type: 3}
   - {fileID: -2006561443332068348, guid: f11a0f09789459f41bc7f7c8fe0e011c, type: 3}
+  - {fileID: -4528937619208538868, guid: f11a0f09789459f41bc7f7c8fe0e011c, type: 3}
+  - {fileID: 6470532127045375218, guid: f11a0f09789459f41bc7f7c8fe0e011c, type: 3}
+  - {fileID: -8454803829586038505, guid: f11a0f09789459f41bc7f7c8fe0e011c, type: 3}
+  - {fileID: 354028154, guid: f11a0f09789459f41bc7f7c8fe0e011c, type: 3}
+  - {fileID: -882776447150909336, guid: f11a0f09789459f41bc7f7c8fe0e011c, type: 3}
+  - {fileID: -1392302078, guid: f11a0f09789459f41bc7f7c8fe0e011c, type: 3}
+  - {fileID: 324554952, guid: f11a0f09789459f41bc7f7c8fe0e011c, type: 3}
+  - {fileID: 1647904435, guid: f11a0f09789459f41bc7f7c8fe0e011c, type: 3}
+  - {fileID: 5733055235031021666, guid: f11a0f09789459f41bc7f7c8fe0e011c, type: 3}
+  - {fileID: -8154789829856559759, guid: f11a0f09789459f41bc7f7c8fe0e011c, type: 3}
+  - {fileID: 1367490548, guid: f11a0f09789459f41bc7f7c8fe0e011c, type: 3}

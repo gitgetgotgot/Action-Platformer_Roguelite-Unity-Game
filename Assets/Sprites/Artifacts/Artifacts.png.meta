@@ -162,13 +162,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Artifacts_1
+      name: WizardAmulet
       rect:
         serializedVersion: 2
         x: 41
-        y: 213
+        y: 214
         width: 32
-        height: 34
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,13 +184,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Artifacts_2
+      name: GauntletMK1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 200
-        width: 34
-        height: 54
+        x: 73
+        y: 201
+        width: 52
+        height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,13 +228,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Artifacts_4
+      name: MagicNecklace
       rect:
         serializedVersion: 2
-        x: 35
-        y: 175
-        width: 38
-        height: 37
+        x: 36
+        y: 176
+        width: 36
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,13 +250,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Artifacts_5
+      name: GauntletMK2
       rect:
         serializedVersion: 2
-        x: 80
-        y: 145
-        width: 34
-        height: 54
+        x: 73
+        y: 146
+        width: 52
+        height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,10 +294,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Artifacts_7
+      name: Soul_in_a_Bottle
       rect:
         serializedVersion: 2
-        x: 216
+        x: 204
         y: 88
         width: 40
         height: 40
@@ -316,7 +316,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Artifacts_8
+      name: Wizard_Flashlight
       rect:
         serializedVersion: 2
         x: 192
@@ -338,7 +338,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Artifacts_9
+      name: WizardSoulFlashlight
       rect:
         serializedVersion: 2
         x: 192
@@ -359,6 +359,116 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: WizardNecklace
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 135
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7f7e341ed1271343bbd20f42bec6fe3
+      internalID: 1367490548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageGauntlet
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 92
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93d3bb18aeafb6046be51c9ab05b0dcf
+      internalID: 354028154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldMK1
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 72
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 042955dabd8e83e4bae89ee866568ff4
+      internalID: -1392302078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldMK2
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 72
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 730ed56d317f2c34f822ec8e8b93497c
+      internalID: 1647904435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LifeShield
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 36
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aab72e33fe7d7b49b5174c9680703ea
+      internalID: 324554952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -374,15 +484,20 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Artifacts_0: -6322841899982183920
-      Artifacts_1: 5733055235031021666
-      Artifacts_2: -8454803829586038505
       Artifacts_3: 179043671145297668
-      Artifacts_4: -8154789829856559759
-      Artifacts_5: -882776447150909336
       Artifacts_6: -1840567244533406053
-      Artifacts_7: -4528937619208538868
-      Artifacts_8: -2006561443332068348
-      Artifacts_9: 6470532127045375218
+      GauntletMK1: -8454803829586038505
+      GauntletMK2: -882776447150909336
+      LifeShield: 324554952
+      MagicNecklace: -8154789829856559759
+      RageGauntlet: 354028154
+      ShieldMK1: -1392302078
+      ShieldMK2: 1647904435
+      Soul_in_a_Bottle: -4528937619208538868
+      WizardAmulet: 5733055235031021666
+      WizardNecklace: 1367490548
+      WizardSoulFlashlight: 6470532127045375218
+      Wizard_Flashlight: -2006561443332068348
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

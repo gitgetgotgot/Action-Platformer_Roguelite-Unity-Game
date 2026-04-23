@@ -16,7 +16,7 @@ public class LevelGenerator : MonoBehaviour
     private const string ENTRY_POINT = "EntryPoint";
     public Vector3 GenerateLevel(Transform segmentsHolder)
     {
-        if (GameContext.activeSave.level == 1)
+        if (GameContext.activeSave.active_room == 1)
         {
             //add start segment and add its exit point
             segmentsList.Enqueue(startSegment);
@@ -24,13 +24,10 @@ public class LevelGenerator : MonoBehaviour
             //add segment1
             segmentsList.Enqueue(segment1);
             segmentsPositions.Enqueue(segment1.transform.Find(EXIT_POINT).position);
-            if (Random.Range(0, 2) == 1)
-            {
-                //add arena segment
-                segmentsList.Enqueue(arenaSegment);
-                segmentsPositions.Enqueue(arenaSegment.transform.Find(EXIT_POINT).position);
-            }
-            
+            //add arena segment
+            segmentsList.Enqueue(arenaSegment);
+            segmentsPositions.Enqueue(arenaSegment.transform.Find(EXIT_POINT).position);
+
             //add shop segment
             segmentsList.Enqueue(shopSegment);
             segmentsPositions.Enqueue(shopSegment.transform.Find(EXIT_POINT).position);
@@ -40,7 +37,7 @@ public class LevelGenerator : MonoBehaviour
             InstantiateLevelSegments(segmentsHolder);
             return startSegment.transform.Find("StartMark").transform.position;
         }
-        else if (GameContext.activeSave.level == 2)
+        else if (GameContext.activeSave.active_room == 2)
         {
             //add start segment and add its exit point
             segmentsList.Enqueue(startSegment);

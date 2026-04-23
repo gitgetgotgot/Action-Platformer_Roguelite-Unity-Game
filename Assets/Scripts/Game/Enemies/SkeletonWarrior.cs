@@ -35,19 +35,28 @@ public class SkeletonWarrior : Enemy
             }
             return;
         }
-        //change direction based on player X pos
-        x_direction = GameContext.playerPos.x - rb.position.x;
-        if (x_direction > 0)
+
+        if (canWalk)
         {
-            x_direction = 1f;
-            sr.flipX = false;
+            //change direction based on player X pos
+            x_direction = GameContext.playerPos.x - rb.position.x;
+            if (x_direction > 0)
+            {
+                x_direction = 1f;
+                sr.flipX = false;
+            }
+            else
+            {
+                x_direction = -1f;
+                sr.flipX = true;
+            }
+            animator.SetBool("isWalking", true);
         }
         else
         {
-            x_direction = -1f;
-            sr.flipX = true;
+            animator.SetBool("isWalking", false);
+            x_direction = 0f;
         }
-        animator.SetBool("isWalking", true);
 
         //check if near enough the player to stop walking
         bool isStanding = false;

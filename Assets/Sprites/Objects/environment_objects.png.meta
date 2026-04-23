@@ -436,10 +436,10 @@ TextureImporter:
       name: walls_banner
       rect:
         serializedVersion: 2
-        x: 90
+        x: 299
         y: 1
-        width: 20
-        height: 48
+        width: 55
+        height: 103
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -455,7 +455,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bricks_ark
+      name: Entrance_Ark
       rect:
         serializedVersion: 2
         x: 1
@@ -463,7 +463,7 @@ TextureImporter:
         width: 88
         height: 108
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -472,6 +472,226 @@ TextureImporter:
       bones: []
       spriteID: 4eb84b6cddfc3f7419454824ee6ade46
       internalID: -1909061446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Window_Ark
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 1
+        width: 48
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7235e6f636f227145932564c93392298
+      internalID: -76593808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Castle_Fence_1
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 1
+        width: 105
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e1a24b4df827984b9d2445063541632
+      internalID: -1205423709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Castle_Fence_2
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 42
+        width: 129
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5c45b9309bf4824ebdd57b69d43013f
+      internalID: -568560199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Castle_Chain_1
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 1
+        width: 14
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39df2fadc6fe13c4faac9eeeac58bf0e
+      internalID: -1947961094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Castle_Chain_2
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 1
+        width: 14
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9c315e592aef984aa86a98850a40728
+      internalID: 1494887594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Castle_Wall
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 110
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65b08121b6042dc4e9b33218c15674db
+      internalID: 1637006719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Castle_Background
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 110
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09e83bbb79384c9498f6d8fe8c768bfe
+      internalID: 1121014562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Castle_Ground
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 110
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f51360a00e09d14b80700991d2e7a9b
+      internalID: 1007347045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Platform_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 175
+        width: 128
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10d284386d9db974b902b1a460661cd1
+      internalID: 215140018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Platform_2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 186
+        width: 256
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d8d5db6fe02cfd44a6fedc053415689
+      internalID: 1468199646
       vertices: []
       indices: 
       edges: []
@@ -491,8 +711,18 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       BattleMark: 180836031
+      Castle_Background: 1121014562
+      Castle_Chain_1: -1947961094
+      Castle_Chain_2: 1494887594
+      Castle_Fence_1: -1205423709
+      Castle_Fence_2: -568560199
+      Castle_Ground: 1007347045
+      Castle_Wall: 1637006719
+      Entrance_Ark: -1909061446
+      Platform_1: 215140018
+      Platform_2: 1468199646
+      Window_Ark: -76593808
       artifact_crate: -1576475869
-      bricks_ark: -1909061446
       buff_icon: -2793372574550831474
       buff_mark: -1694705390
       crate: -332181704
