@@ -18,32 +18,39 @@ public class Enemy : MonoBehaviour
     [Header("----HP Bar----")]
     public GameObject hp_bar_holder;
     public Transform hp_bar;
+    public SpriteRenderer hp_bar_sprite_renderer;
     public Vector2 hp_bar_scale;
+    public Sprite HP_Bar_sprite;
+    public Sprite MagicShield_Bar_sprite;
+    public SpriteRenderer MagicShield_sr;
 
     protected Rigidbody2D rb;
     protected SpriteRenderer sr;
-    protected BoxCollider2D boxCollider;
+    protected CapsuleCollider2D capsuleCollider;
+    protected Animator animator;
     protected float x_direction;
     protected float current_hp;
     protected float knockbackForceDelta;
     protected float currentKnockbackForce;
     protected float timeKnockbackStarted;
     protected bool hasKnockback = false;
-    protected int magicShieldStrength = 0;
+    protected float magicShieldStrength = 0;
+    protected float magicShieldMaxStrength = 0;
     protected bool canWalk = true;
     public virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        boxCollider = GetComponent<BoxCollider2D>();
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
+        animator = GetComponent<Animator>();
         rb.freezeRotation = true;
-
         current_hp = hp;
         hp_bar_holder.SetActive(false);
         if (walkAfterPlayerIsClose)
         {
             canWalk = false;
         }
+        MagicShield_sr.enabled = false;
     }
     public virtual void Update()
     {
@@ -88,9 +95,13 @@ public class Enemy : MonoBehaviour
             else if(attackType == PlayerAttackType.isMagicArrow)
             {
                 magicShieldStrength--;
-                if(magicShieldStrength == 0)
+                hp_bar.localScale = new Vector3(hp_bar_scale.x * magicShieldStrength / magicShieldMaxStrength, hp_bar_scale.y, 1);
+                if (magicShieldStrength == 0)
                 {
+                    hp_bar_sprite_renderer.sprite = HP_Bar_sprite;
+                    hp_bar_holder.SetActive(false);
                     sr.color = Color.white;
+                    MagicShield_sr.enabled = false;
                 }
             }
             return false;
@@ -140,7 +151,12 @@ public class Enemy : MonoBehaviour
         if (shieldStrength <= 0) return;
         //apply shield
         magicShieldStrength = shieldStrength;
+        magicShieldMaxStrength = shieldStrength;
         sr.color = Color.blue;
+        hp_bar_holder.SetActive(true);
+        hp_bar_sprite_renderer.sprite = MagicShield_Bar_sprite;
+        hp_bar.localScale = new Vector3(hp_bar_scale.x * magicShieldStrength / magicShieldMaxStrength, hp_bar_scale.y, 1);
+        MagicShield_sr.enabled = true;
     }
     public float Get_Damage() { return dmg; }
     public float Get_hp() { return hp; }

@@ -2,9 +2,7 @@ using UnityEngine;
 
 public class Ghost2 : Enemy
 {
-    protected Animator animator;
     public float speedY = 2f;
-    public float offset_y_target = 1f;
     public float attack_radius = 5f;
     public float attack_interval_sec = 1f;
     public float dash_speed = 5f;
@@ -20,7 +18,6 @@ public class Ghost2 : Enemy
     public override void Awake()
     {
         base.Awake();
-        animator = GetComponent<Animator>();
         last_attack_time = Time.time;
     }
     public override void Update()
@@ -39,7 +36,7 @@ public class Ghost2 : Enemy
         if (canWalk)
         {
             x_direction = GameContext.playerPos.x - rb.position.x;
-            float y_direction = GameContext.playerPos.y + offset_y_target - rb.position.y;
+            float y_direction = GameContext.playerPos.y - rb.position.y;
             if (x_direction > 0)
             {
                 current_x_speed += speed * Time.deltaTime;

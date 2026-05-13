@@ -74,7 +74,8 @@ public class RunBasedBuffsPage : MonoBehaviour
         availableBuffs[0].Set_Data(first_id);
         availableBuffs[1].Set_Data(second_id);
         availableBuffs[2].Set_Data(third_id);
-        buffDescription.text = BuffsManager.Instance.GetRunBasedBuff(availableBuffs[1].id).description;
+        UpdateSelectedBuff(availableBuffs[1]);
+        GameContext.selectedRunBasedBuff = availableBuffs[1];
     }
     public void UpdateSelectedBuff(RunBasedBuff buff)
     {

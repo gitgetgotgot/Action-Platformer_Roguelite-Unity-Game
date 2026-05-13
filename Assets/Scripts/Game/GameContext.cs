@@ -18,10 +18,18 @@ public static class GameContext
     public static Vector2 playerPos = new();
     public static bool playerIsInDesignatedArea = false;
     public static bool attackOutsideAreaIsAllowed = true;
+    public static string arenaCondition;
+    public static CastleBossArena bossArena;
 
     public static int enemies_destroyed = 0;
     public static void Update_active_save(int saveDataIndex)
     {
         activeSave = savesDataList[saveDataIndex];
+    }
+    public static void Delete_chosen_save(int saveIndex)
+    {
+        SavesManager.Instance.DeleteSave(savesDataList[saveIndex].playerName);
+        savesDataList.RemoveAt(saveIndex);
+        MenuScript.instance.DeleteSaveElement(saveIndex);
     }
 }

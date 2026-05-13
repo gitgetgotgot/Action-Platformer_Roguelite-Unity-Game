@@ -21,8 +21,4 @@ public class EnemyHitbox : MonoBehaviour
                 enemyController.ApplyKnockback(5f, false);
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        
-    }
 }

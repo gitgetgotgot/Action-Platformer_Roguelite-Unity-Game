@@ -143,7 +143,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -1176,6 +1176,182 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Sword_Trace_2
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 226
+        width: 93
+        height: 119
+      alignment: 9
+      pivot: {x: 0.06451613, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 519021fdc7e116143b75ac2b3b98ea9c
+      internalID: -1542035647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sword_Trace_3
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 248
+        width: 119
+        height: 97
+      alignment: 9
+      pivot: {x: 0, y: 0.010309278}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8e7730de7f0f9642acbdbaee9374717
+      internalID: 1043089761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sword_Trace_1
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 226
+        width: 62
+        height: 119
+      alignment: 9
+      pivot: {x: 0.61290324, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcfaa41e9065de84697938b8155f393d
+      internalID: -1262002091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sword_Trace_4
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 240
+        width: 119
+        height: 105
+      alignment: 9
+      pivot: {x: 0, y: 0.7904762}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7cbebf692d6c154eaf99058091da266
+      internalID: -936478547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sword_Trace_Empty_Frame
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 131
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 306acf2891188a547be0fc920b0a5526
+      internalID: -929279507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sword_Trace_Up_1
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 142
+        width: 119
+        height: 80
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73c484c1755e7f649824aa2bb1439144
+      internalID: -935225286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sword_Trace_Up_2
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 133
+        width: 120
+        height: 89
+      alignment: 9
+      pivot: {x: 0, y: 0.08988764}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee170ae4af16c704cab0142792001aac
+      internalID: -715965639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sword_Trace_Up_3
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 106
+        width: 102
+        height: 116
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b9982db15d487947aa176950979b36c
+      internalID: 351282254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -1235,6 +1411,14 @@ TextureImporter:
       P_sword_stab_3: -1609928359
       P_sword_stab_4: -921083287
       P_sword_stab_5: 151200810
+      Sword_Trace_1: -1262002091
+      Sword_Trace_2: -1542035647
+      Sword_Trace_3: 1043089761
+      Sword_Trace_4: -936478547
+      Sword_Trace_Empty_Frame: -929279507
+      Sword_Trace_Up_1: -935225286
+      Sword_Trace_Up_2: -715965639
+      Sword_Trace_Up_3: 351282254
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

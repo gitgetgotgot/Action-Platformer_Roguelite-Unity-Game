@@ -1,0 +1,890 @@
+fileFormatVersion: 2
+guid: f0d98a9dc02ca1b4aaf255819fe092d6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5301182086887741927
+    second: Skeleton_Mage_Boss_0
+  - first:
+      213: 8317118271256731731
+    second: Skeleton_Mage_Boss_1
+  - first:
+      213: -7250649757942362171
+    second: Skeleton_Mage_Boss_2
+  - first:
+      213: 8699544758721814166
+    second: Skeleton_Mage_Boss_3
+  - first:
+      213: 624991253119614984
+    second: Skeleton_Mage_Boss_4
+  - first:
+      213: -8215048101087151059
+    second: Skeleton_Mage_Boss_5
+  - first:
+      213: 6050716610266101226
+    second: Skeleton_Mage_Boss_6
+  - first:
+      213: 5908818626347115668
+    second: Skeleton_Mage_Boss_7
+  - first:
+      213: -2327620050365621776
+    second: Skeleton_Mage_Boss_8
+  - first:
+      213: -7082662554881116359
+    second: Skeleton_Mage_Boss_9
+  - first:
+      213: 8423667030361107622
+    second: Skeleton_Mage_Boss_10
+  - first:
+      213: 6921717012606582817
+    second: Skeleton_Mage_Boss_11
+  - first:
+      213: -5541566075687818811
+    second: Skeleton_Mage_Boss_12
+  - first:
+      213: 3296226488978687905
+    second: Skeleton_Mage_Boss_13
+  - first:
+      213: 4744205831667604081
+    second: Skeleton_Mage_Boss_14
+  - first:
+      213: -5047042538913615281
+    second: Skeleton_Mage_Boss_15
+  - first:
+      213: -2286000533295277002
+    second: Skeleton_Mage_Boss_16
+  - first:
+      213: 621844080280660047
+    second: Skeleton_Mage_Boss_17
+  - first:
+      213: -1902546746702532114
+    second: Skeleton_Mage_Boss_18
+  - first:
+      213: -8954318477265516927
+    second: Skeleton_Mage_Boss_19
+  - first:
+      213: 8077861101753223324
+    second: Skeleton_Mage_Boss_20
+  - first:
+      213: -5634462658342259362
+    second: Skeleton_Mage_Boss_21
+  - first:
+      213: 3827634963467032930
+    second: Skeleton_Mage_Boss_22
+  - first:
+      213: 21460066561662665
+    second: Skeleton_Mage_Boss_23
+  - first:
+      213: -3371579193425233036
+    second: Skeleton_Mage_Boss_24
+  - first:
+      213: -1448713132558254142
+    second: Skeleton_Mage_Boss_25
+  - first:
+      213: -5007673551665765172
+    second: Skeleton_Mage_Boss_26
+  - first:
+      213: -6364454498905392838
+    second: Skeleton_Mage_Boss_27
+  - first:
+      213: 3730250104532369376
+    second: Skeleton_Mage_Boss_28
+  - first:
+      213: -711848755347436491
+    second: Skeleton_Mage_Boss_29
+  - first:
+      213: -1207099712086219640
+    second: Skeleton_Mage_Boss_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Skltn_Mage_Boss_Idle
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 835
+        width: 63
+        height: 188
+      alignment: 9
+      pivot: {x: 0.61904764, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91664659afa6e66b0800000000000000
+      internalID: -5301182086887741927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skltn_Mage_Boss_Upper_Attack
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 835
+        width: 63
+        height: 188
+      alignment: 9
+      pivot: {x: 0.61904764, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7fa4d8a31ca0b248a9ac89528eb7890
+      internalID: -1703590211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skltn_Mage_Boss_Forward_Attack
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 835
+        width: 118
+        height: 188
+      alignment: 9
+      pivot: {x: 0.33050847, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1dec1b18f6b03e40afd2ffe70081d82
+      internalID: 1322546697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skltn_Mage_Boss_Close_Attack
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 835
+        width: 79
+        height: 188
+      alignment: 9
+      pivot: {x: 0.49367088, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a0ad8f1c05b3ce4e81e240bf2f25124
+      internalID: 2002867560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skltn_Mage_Boss_Dark_Attack
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 835
+        width: 79
+        height: 188
+      alignment: 9
+      pivot: {x: 0.49367088, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7fc0981c802092438184a7ab54ba128
+      internalID: 147738812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skltn_Mage_Boss_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 663
+        width: 64
+        height: 169
+      alignment: 9
+      pivot: {x: 0.609375, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8239428f3f1345d43b91ffc7ffd49edb
+      internalID: 1529722083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skltn_Mage_Boss_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 663
+        width: 65
+        height: 169
+      alignment: 9
+      pivot: {x: 0.6, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7284cce6aeac3174896a790c2b5025a3
+      internalID: 1410907827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skltn_Mage_Boss_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 663
+        width: 64
+        height: 169
+      alignment: 9
+      pivot: {x: 0.609375, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767843a5fa6874d4a940edf4947a8bf3
+      internalID: -360071345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skltn_Mage_Boss_Walk_4
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 663
+        width: 65
+        height: 169
+      alignment: 9
+      pivot: {x: 0.6, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a02f5210a47e20499ff399818262cf0
+      internalID: 1634363598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_Pentagram
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 557
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c2c7fc60c5437f4fa7c6824d4755c02
+      internalID: -2118937341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_Circle_Attack
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 196
+        width: 347
+        height: 347
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fb763d5a0c0e864dad9496f1ec24105
+      internalID: -1331053720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Living_Fire_1
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 608
+        width: 23
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebd2291883b7f7248bd7c8ca28445cbe
+      internalID: 1634541092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Living_Fire_2
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 608
+        width: 23
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8710af1d12fe81e42a1181b46f29c0eb
+      internalID: 207774573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Living_Fire_3
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 608
+        width: 23
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69b85989f607dd54a8088e8c5a9a144b
+      internalID: -1610920722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Living_Fire_4
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 555
+        width: 23
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 174133b97827e834582e50d9bd38b086
+      internalID: -756563504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Living_Fire_5
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 555
+        width: 23
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef28721e6f7ea48498232a980e125bf4
+      internalID: 289640933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Living_Fire_6
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 555
+        width: 23
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b713d2156aa1b7747929fdb715b21e08
+      internalID: -1332451461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Living_Dark_Fire_1
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 608
+        width: 23
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24691845fbe4f2b44b9f7a550409dcbf
+      internalID: 1121026897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Living_Dark_Fire_2
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 608
+        width: 23
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6566c57da43873a44b17e445ce3b2f99
+      internalID: -1050589924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Living_Dark_Fire_3
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 608
+        width: 23
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 537f8ace9f1282d4bb815d5ca68cce4e
+      internalID: 1103134109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Living_Dark_Fire_4
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 555
+        width: 23
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed73584abd06d0045a1f70cd97061973
+      internalID: -3546027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Living_Dark_Fire_5
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 555
+        width: 23
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46db9b0f18379f84f96547ee51acf293
+      internalID: 1582197283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Living_Dark_Fire_6
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 555
+        width: 23
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df6e71683b831af4d930f1142e9be927
+      internalID: 603042321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Mage_Boss_Initial
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 835
+        width: 55
+        height: 188
+      alignment: 9
+      pivot: {x: 0.56363636, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3376b711dd2839c4ca3f58c13641f69e
+      internalID: 1603735413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Mage_Boss_Defeat_1
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 663
+        width: 63
+        height: 169
+      alignment: 9
+      pivot: {x: 0.61904764, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aee5bca620d337345b30654778ef69fe
+      internalID: -751805482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Mage_Boss_Defeat_2
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 663
+        width: 55
+        height: 169
+      alignment: 9
+      pivot: {x: 0.56363636, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ed0f2aa905ad304d83633ac851da0a1
+      internalID: 618819353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Mage_Boss_Defeat_3
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 663
+        width: 61
+        height: 169
+      alignment: 9
+      pivot: {x: 0.5081967, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ede6e58e66fdb5248858e5410c5f6851
+      internalID: 1107269832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Mage_Boss_Defeat_4
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 663
+        width: 80
+        height: 169
+      alignment: 9
+      pivot: {x: 0.3875, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e676cfd93c41e5f46b20dc61e34dcfa6
+      internalID: 2087562629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Mage_Boss_Defeat_5
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 663
+        width: 80
+        height: 169
+      alignment: 9
+      pivot: {x: 0.3875, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5abf983ff3ee674ea7b682e891bef0d
+      internalID: 707456882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 91af88dcc6392f14986edf28f4dcabb2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Fire_Circle_Attack: -1331053720
+      Fire_Pentagram: -2118937341
+      Living_Dark_Fire_1: 1121026897
+      Living_Dark_Fire_2: -1050589924
+      Living_Dark_Fire_3: 1103134109
+      Living_Dark_Fire_4: -3546027
+      Living_Dark_Fire_5: 1582197283
+      Living_Dark_Fire_6: 603042321
+      Living_Fire_1: 1634541092
+      Living_Fire_2: 207774573
+      Living_Fire_3: -1610920722
+      Living_Fire_4: -756563504
+      Living_Fire_5: 289640933
+      Living_Fire_6: -1332451461
+      Skeleton_Mage_Boss_Defeat_1: -751805482
+      Skeleton_Mage_Boss_Defeat_2: 618819353
+      Skeleton_Mage_Boss_Defeat_3: 1107269832
+      Skeleton_Mage_Boss_Defeat_4: 2087562629
+      Skeleton_Mage_Boss_Defeat_5: 707456882
+      Skeleton_Mage_Boss_Initial: 1603735413
+      Skltn_Mage_Boss_Close_Attack: 2002867560
+      Skltn_Mage_Boss_Dark_Attack: 147738812
+      Skltn_Mage_Boss_Forward_Attack: 1322546697
+      Skltn_Mage_Boss_Idle: -5301182086887741927
+      Skltn_Mage_Boss_Upper_Attack: -1703590211
+      Skltn_Mage_Boss_Walk_1: 1529722083
+      Skltn_Mage_Boss_Walk_2: 1410907827
+      Skltn_Mage_Boss_Walk_3: -360071345
+      Skltn_Mage_Boss_Walk_4: 1634363598
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

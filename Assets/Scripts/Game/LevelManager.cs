@@ -122,6 +122,16 @@ public class LevelManager : MonoBehaviour
 
         List<int> list = available_ids.ToList();
 
+        //remove buffs with inappropriate levels
+        var grouped_buffs = list.GroupBy(id => BuffsManager.Instance.GetRunBasedBuff(id).buffType);
+        list = grouped_buffs.Select(g => g.Min()).ToList();
+
+        //add HP Restoration if less than 3 buffs available
+        if(list.Count < 3)
+        {
+            while (list.Count < 3)
+                list.Add(12);
+        }
         // Shuffle
         for (int i = list.Count - 1; i > 0; i--)
         {
@@ -131,7 +141,6 @@ public class LevelManager : MonoBehaviour
         id1 = list[0];
         id2 = list[1];
         id3 = list[2];
-
 
         //put them on the page
         RunBasedBuffsPage.Instance.UpdateAvailableRunBuffs(id1, id2, id3);
@@ -152,7 +161,7 @@ public class LevelManager : MonoBehaviour
             Destroy(segment.gameObject);
         //generate new level with new segments and get start pos for player
         Vector3 playerPos = levelGenerator.GenerateLevel(LevelObjectsHolder.transform);
-        playerPos.z = -0.1f;
+        playerPos.z = -0.15f;
         player.transform.position = playerPos;
         //update shop artifacts (even if there is no shop :) )
         UpdateAvailableShopArtifacts();

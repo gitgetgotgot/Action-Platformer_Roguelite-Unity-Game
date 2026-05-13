@@ -251,13 +251,16 @@ public class PlayerStats {
                 {
                     if (apply)
                     {
-                        hp_mplr += buff.power * 0.01f; hp *= hp_mplr;
+                        hp_mplr += buff.power * 0.01f;
                     }
                     else
                     {
-                        hp *= 1 / hp_mplr; hp_mplr -= buff.power * 0.01f; hp *= hp_mplr;
+                        hp_mplr -= buff.power * 0.01f;
                     }
+                    float prev_max_hp = maxHP;
                     Update_max_hp();
+                    hp += maxHP - prev_max_hp;
+                    hud_manager.Set_Hp_Bar(hp / maxHP);
                     break;
                 }
             case BuffType.HP_REFILL:

@@ -3,6 +3,13 @@ using UnityEngine;
 
 public class CastleArena : MonoBehaviour
 {
+    private readonly string[] ARENA_CONDITION_DESCRIPTIONS =
+    {
+        "Break magic shields of enemies by using magic bow attacks",
+        "Be careful of dark flames projectiles",
+        "Be careful of Arena mace traps",
+        "Attacks are only allowed in a special zone"
+    };
     [Header("Fences")]
     public GameObject arenaLeftFence;
     public GameObject arenaRightFence;
@@ -21,7 +28,7 @@ public class CastleArena : MonoBehaviour
 
     private bool isBattle = false;
     private int condition_id = 0;
-    private const int ENEMIES_MAGIC_SHIELD_STREGTH = 2;
+    private const int ENEMIES_MAGIC_SHIELD_STREGTH = 3;
     private int waves_total = 0;
     private int wave_current = 0;
     private int wave_enemies_count = 0;
@@ -50,7 +57,16 @@ public class CastleArena : MonoBehaviour
             condition_id = Random.Range(1, 5); // [1, 4]
         }
     }
-
+    public bool NotifyArenaStart()
+    {
+        StartArenaBattle();
+        if (isArenaWithRandomConditions)
+        {
+            GameContext.arenaCondition = ARENA_CONDITION_DESCRIPTIONS[condition_id - 1];
+            return true;
+        }
+        return false;
+    }
     public void StartArenaBattle()
     {
         //activate arena blockades and prepare waves
@@ -160,10 +176,6 @@ public class CastleArena : MonoBehaviour
 
     private void ActivateCondition()
     {
-        if (condition_id == 1)
-        {
-            
-        }
         if (condition_id == 2)
         {
             darkFlame1.SetActive(true);
@@ -184,10 +196,6 @@ public class CastleArena : MonoBehaviour
     }
     private void DeactivateCondition()
     {
-        if (condition_id == 1)
-        {
-
-        }
         if (condition_id == 2)
         {
             darkFlame1.SetActive(false);

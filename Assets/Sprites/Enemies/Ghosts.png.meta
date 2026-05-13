@@ -47,7 +47,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -407,7 +407,7 @@ TextureImporter:
         width: 20
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -429,7 +429,7 @@ TextureImporter:
         width: 20
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -451,7 +451,7 @@ TextureImporter:
         width: 20
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -460,6 +460,28 @@ TextureImporter:
       bones: []
       spriteID: 09494d20062cf204295f02957d0ed129
       internalID: 961255597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Magic_Shield
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 1
+        width: 80
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 2, y: 0, z: 0, w: 1}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64077ace89565fc4caecaab80efcff7a
+      internalID: 554157802
       vertices: []
       indices: 
       edges: []
@@ -485,6 +507,7 @@ TextureImporter:
       Ghost 2: -1323546066
       Ghost2 attack: 359931697
       Ghost2 usual: -1957567660
+      Magic_Shield: 554157802
       Skltn Mage attack1: -1411851613
       Skltn Mage attack2: -2027798252
       Skltn Mage attack3: 265642703

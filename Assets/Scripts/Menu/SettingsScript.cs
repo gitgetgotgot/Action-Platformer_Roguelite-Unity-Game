@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SettingsScript : MonoBehaviour
 {
+    public static SettingsScript instance;
     public Button fullscreenButton;
     public TMP_Text fullscreenText;
     public Button vsyncButton;
@@ -18,6 +18,7 @@ public class SettingsScript : MonoBehaviour
 
     void Awake()
     {
+        instance = this;
         LoadSettings();
         LoadResolutionsToDropdown();
         fullscreenButton.onClick.AddListener(ToggleFullscreen);
@@ -27,7 +28,7 @@ public class SettingsScript : MonoBehaviour
         soundsSlider.onValueChanged.AddListener(ChangeSoundsVolume);
     }
 
-    private void LoadSettings()
+    public void LoadSettings()
     {
         if (GameSettings.isFullscreen) fullscreenText.text = "Fullscreen: ON";
         else fullscreenText.text = "Fullscreen: OFF";
@@ -38,6 +39,11 @@ public class SettingsScript : MonoBehaviour
         musicSlider.value = GameSettings.MusicVolume;
         soundsSlider.value = GameSettings.SoundsVolume;
     }
+    public void UpdateResolutionInDropdown()
+    {
+        resolutionsDropdown.value = GameSettings.active_resolution_index;
+        ChangeResolution(GameSettings.active_resolution_index);
+    }
     private void LoadResolutionsToDropdown()
     {
         List<string> resList = new();
@@ -45,7 +51,8 @@ public class SettingsScript : MonoBehaviour
         for(int i = 0; i < GameSettings.resolutions.Length; i++)
         {
             Resolution resolution = GameSettings.resolutions[i];
-            if (resolution.Equals(Screen.currentResolution)) active_res_index = i;
+            if (resolution.width == Screen.currentResolution.width &&
+                    resolution.height == Screen.currentResolution.height) active_res_index = i;
             resList.Add(resolution.width + "x" + resolution.height);
         }
         resolutionsDropdown.ClearOptions();

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class DamageTextPoolManager : MonoBehaviour
@@ -30,6 +29,15 @@ public class DamageTextPoolManager : MonoBehaviour
 
         DamageText dt = free_texts[0];
         dt.SetDamageText(dmg, isCrit, startPos);
+        RemoveDamageTextFromFree(dt);
+    }
+    public void ActivatePlayerDamageText(float dmg, Vector3 startPos)
+    {
+        if (free_texts.Count == 0)
+            CreateNewDamageText();
+
+        DamageText dt = free_texts[0];
+        dt.SetPlayerDamageText(dmg, startPos);
         RemoveDamageTextFromFree(dt);
     }
     public void RemoveDamageTextFromFree(DamageText damageText)

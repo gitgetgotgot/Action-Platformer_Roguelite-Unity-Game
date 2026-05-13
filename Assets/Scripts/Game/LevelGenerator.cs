@@ -3,12 +3,20 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
-    [Header("Castle segments")]
+    [Header("--Castle segments--")]
+    [Header("Base Segments")]
     public GameObject startSegment;
     public GameObject endSegment;
     public GameObject shopSegment;
     public GameObject arenaSegment;
-    public GameObject segment1;
+    public GameObject bossArenaSegment;
+    [Header("Platforming Segments")]
+    public GameObject platformingSegment1;
+    public GameObject platformingSegment2;
+    public GameObject platformingSegment3;
+    public GameObject platformingSegment4;
+    public GameObject platformingSegment5;
+    public GameObject platformingSegment6;
 
     private Queue<GameObject> segmentsList = new();
     private Queue<Vector3> segmentsPositions = new();
@@ -22,8 +30,8 @@ public class LevelGenerator : MonoBehaviour
             segmentsList.Enqueue(startSegment);
             segmentsPositions.Enqueue(startSegment.transform.Find(EXIT_POINT).position);
             //add segment1
-            segmentsList.Enqueue(segment1);
-            segmentsPositions.Enqueue(segment1.transform.Find(EXIT_POINT).position);
+            segmentsList.Enqueue(platformingSegment1);
+            segmentsPositions.Enqueue(platformingSegment1.transform.Find(EXIT_POINT).position);
             //add arena segment
             segmentsList.Enqueue(arenaSegment);
             segmentsPositions.Enqueue(arenaSegment.transform.Find(EXIT_POINT).position);
@@ -63,8 +71,8 @@ public class LevelGenerator : MonoBehaviour
                 segmentsList.Enqueue(shopSegment);
                 segmentsPositions.Enqueue(shopSegment.transform.Find(EXIT_POINT).position);
                 //add segment1
-                segmentsList.Enqueue(segment1);
-                segmentsPositions.Enqueue(segment1.transform.Find(EXIT_POINT).position);
+                segmentsList.Enqueue(platformingSegment1);
+                segmentsPositions.Enqueue(platformingSegment1.transform.Find(EXIT_POINT).position);
             }
             
             //add end segment
@@ -79,8 +87,8 @@ public class LevelGenerator : MonoBehaviour
             segmentsList.Enqueue(startSegment);
             segmentsPositions.Enqueue(startSegment.transform.Find(EXIT_POINT).position);
             //add arena segment
-            segmentsList.Enqueue(arenaSegment);
-            segmentsPositions.Enqueue(arenaSegment.transform.Find(EXIT_POINT).position);
+            segmentsList.Enqueue(bossArenaSegment);
+            segmentsPositions.Enqueue(bossArenaSegment.transform.Find(EXIT_POINT).position);
             //add shop segment
             segmentsList.Enqueue(shopSegment);
             segmentsPositions.Enqueue(shopSegment.transform.Find(EXIT_POINT).position);

@@ -47,7 +47,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -182,10 +182,10 @@ TextureImporter:
       name: UI_Button
       rect:
         serializedVersion: 2
-        x: 208
-        y: 1
-        width: 62
-        height: 8
+        x: 297
+        y: 219
+        width: 124
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -622,10 +622,10 @@ TextureImporter:
       name: UI_Button_2
       rect:
         serializedVersion: 2
-        x: 312
-        y: 129
-        width: 32
-        height: 8
+        x: 297
+        y: 202
+        width: 64
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -684,6 +684,72 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Boss_Bar
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 236
+        width: 164
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a612d25363a53b44b263eae22dc13da
+      internalID: 534151061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_HP_Bar
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 251
+        width: 154
+        height: 8
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a9422165d73a0d4ba92dc33dd9a2365
+      internalID: 592999577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainTitle
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 338
+        width: 253
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08b2df8b20b2a13459d4cfa3eaf103d8
+      internalID: -1322717459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -698,6 +764,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      Boss_Bar: 534151061
+      Boss_HP_Bar: 592999577
       Central_Card_Area: 1884061620
       Const_Buff_Active_Card: 653776490
       Const_Buff_Card_Selector: -1156141469
@@ -712,6 +780,7 @@ TextureImporter:
       Inventory_Slot: -595285468
       Inventory_UI: 1370177424
       Item_Holder: 771715829
+      MainTitle: -1322717459
       Run-Based_Buff_Card: -1755346094
       Run-Based_Buffs_Page: -1557013538026691241
       Run-Based_Card_Selector: 766322688

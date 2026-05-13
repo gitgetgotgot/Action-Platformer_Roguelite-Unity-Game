@@ -90,6 +90,7 @@ public class GameMenuScript : MonoBehaviour
     {
         GameContext.gameState = GameState.inPauseMenu;
         settingsPage.SetActive(false);
+        SavesManager.Instance.SaveGameSettings();
         pausePage.SetActive(true);
         AudioMixerManager.Instance.PlaySound(13);
     }

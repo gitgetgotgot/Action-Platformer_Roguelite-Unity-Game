@@ -17,7 +17,11 @@ public class PlayerHitbox : MonoBehaviour
         else if (collision.CompareTag("BattleMark"))
         {
             CastleArena arena = collision.GetComponentInParent<CastleArena>();
-            arena.StartArenaBattle();
+            bool arenaHasCondition = arena.NotifyArenaStart();
+            if (arenaHasCondition)
+            {
+                playerController.hud_Manager.ShowArenaMessage();
+            }
         }
         else if (collision.CompareTag("ShopMark"))
         {

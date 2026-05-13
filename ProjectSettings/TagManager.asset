@@ -21,6 +21,7 @@ TagManager:
   - Wall
   - AttackArea
   - Platform
+  - BossEnemy
   layers:
   - Default
   - TransparentFX

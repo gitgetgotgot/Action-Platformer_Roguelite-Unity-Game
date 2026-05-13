@@ -6,13 +6,14 @@ public class DamageText : MonoBehaviour
     public float lifetime = 2f;
     public float fade_offset = 1f;
     public float y_move_distance = 1f;
-    public float max_scale = 2f;
+    public float max_scale = 1.5f;
 
     private TMP_Text dmg_text;
     private RectTransform rectTransform;
 
-    private Color usual_color = new(0.75f, 0.72f, 0.63f);
-    private Color critical_color = new(0.83f, 0.19f, 0.0f);
+    private Color usual_dmg_color = new(0.75f, 0.72f, 0.63f);
+    private Color critical_dmg_color = new(0.83f, 0.19f, 0.0f);
+    private Color player_dmg_color = new(0.62f, 0.03f, 0.0f);
 
     private float activation_time;
     private float fade_time;
@@ -48,15 +49,25 @@ public class DamageText : MonoBehaviour
         dmg_text.text = ((int)dmg).ToString();
         if (isCrit)
         {
-            dmg_text.color = critical_color;
+            dmg_text.color = critical_dmg_color;
             dmg_text.fontStyle = FontStyles.Bold;
         }
         else
         {
-            dmg_text.color = usual_color;
+            dmg_text.color = usual_dmg_color;
             dmg_text.fontStyle = FontStyles.Normal;
         }
         startPos.y += 1f;
+        rectTransform.position = startPos;
+        rectTransform.localScale = Vector3.one;
+        activation_time = Time.time;
+        gameObject.SetActive(true);
+    }
+    public void SetPlayerDamageText(float dmg, Vector3 startPos)
+    {
+        dmg_text.text = ((int)dmg).ToString();
+        dmg_text.color = player_dmg_color;
+        dmg_text.fontStyle = FontStyles.Normal;
         rectTransform.position = startPos;
         rectTransform.localScale = Vector3.one;
         activation_time = Time.time;

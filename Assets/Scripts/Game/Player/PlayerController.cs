@@ -49,13 +49,15 @@ public class PlayerController : MonoBehaviour
     public Transform swordSwingColliderPivot;
     public BoxCollider2D swordUltimateCollider;
     public LayerMask enemyHitboxMask;
-    public SwordUltimateEffect ultimateEffectLeft;
-    public SwordUltimateEffect ultimateEffectRight;
+    [Header("VFX")]
+    public SwordUltimateController ultimateEffectLeft;
+    public SwordUltimateController ultimateEffectRight;
+    public SwordTraceController swordTraceAnimator;
 
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer sr;
-    private BoxCollider2D boxCollider;
+    private CapsuleCollider2D capsuleCollider2D;
     private WeaponType activeWeapon = WeaponType.isSword;
     private bool isGrounded = false;
     private bool shouldJump = false;
@@ -70,6 +72,8 @@ public class PlayerController : MonoBehaviour
 
     private float dmg_cd_time_point;
     private bool isAttacking = false;
+    private float sword_attack_cd = 0.2f;
+    private float last_time_sword_attack_cd = 0.0f;
     private string activeShopName = "";
 
     //knockback
@@ -84,6 +88,7 @@ public class PlayerController : MonoBehaviour
 
     //enemies
     HashSet<Enemy> damagedEnemies = new();
+    HashSet<BossEnemy> damagedBossEnemies = new();
     //array of 20 colliders to check hits on enemies
     Collider2D[] results = new Collider2D[20];
 
@@ -94,14 +99,16 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
-        boxCollider = GetComponent<BoxCollider2D>();
+        capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         rb.freezeRotation = true;
         stats = new PlayerStats();
         stats.Init_Stats(hud_Manager);
         hud_Manager.ChangeWeapon(activeWeapon);
         GameContext.playerStats = stats;
         GameContext.hudManager = hud_Manager;
+        GameContext.attackOutsideAreaIsAllowed = true;
         dmg_cd_time_point = Time.time;
+        last_time_sword_attack_cd = Time.time + sword_attack_cd;
 
         animator.Play(IDLE_STATE);
 
@@ -152,6 +159,7 @@ public class PlayerController : MonoBehaviour
     public void CheckUltimateHits()
     {
         damagedEnemies.Clear();
+        damagedBossEnemies.Clear();
         CheckSwordUltimateHit(swordUltimateCollider);
     }
     private void Attack()
@@ -160,13 +168,15 @@ public class PlayerController : MonoBehaviour
                 !GameContext.attackOutsideAreaIsAllowed && GameContext.playerIsInDesignatedArea)
         {
             if (activeWeapon == WeaponType.isMagicBow && stats.mana < mana_bow_usage) return;
-                shouldAttack = true;
+            if (activeWeapon == WeaponType.isSword && Time.time - last_time_sword_attack_cd < sword_attack_cd) return;
+            shouldAttack = true;
             horizontalValue = 0f;
         }
     }
     public void ActivateSwordStabCollider()
     {
         damagedEnemies.Clear();
+        damagedBossEnemies.Clear();
         swordStabCollider.enabled = true;
     }
     public void DeactivateSwordStabCollider()
@@ -176,6 +186,7 @@ public class PlayerController : MonoBehaviour
     public void ActivateSwordSwingCollider(float start_pivot_angle)
     {
         damagedEnemies.Clear();
+        damagedBossEnemies.Clear();
         swordSwingCollider.enabled = true;
         swordSwingColliderPivot.localRotation = Quaternion.Euler(0, 0, start_pivot_angle);
     }
@@ -212,6 +223,15 @@ public class PlayerController : MonoBehaviour
                 if (e.Take_damage(damage, PlayerAttackType.isSword, true, 2f))
                     DamageTextPoolManager.instance.ActivateDamageText(damage, isCrit, e.gameObject.transform.position);
             }
+            BossEnemy bossEnemy = results[i].GetComponent<BossEnemy>();
+            if (bossEnemy != null && !damagedBossEnemies.Contains(bossEnemy))
+            {
+                damagedBossEnemies.Add(bossEnemy);
+                bool isCrit = stats.IsCritHit();
+                float damage = stats.GetSwordDamage(false, isCrit);
+                if (bossEnemy.Take_damage(damage, PlayerAttackType.isSword))
+                    DamageTextPoolManager.instance.ActivateDamageText(damage, isCrit, bossEnemy.gameObject.transform.position);
+            }
         }
     }
     public void CheckSwordUltimateHit(BoxCollider2D boxCollider)
@@ -233,6 +253,15 @@ public class PlayerController : MonoBehaviour
                 float damage = stats.GetSwordDamage(true, isCrit);
                 if (e.Take_damage(damage, PlayerAttackType.isSword, true, 5f))
                     DamageTextPoolManager.instance.ActivateDamageText(damage, isCrit, e.gameObject.transform.position);
+            }
+            BossEnemy bossEnemy = results[i].GetComponent<BossEnemy>();
+            if (bossEnemy != null && !damagedBossEnemies.Contains(bossEnemy))
+            {
+                damagedBossEnemies.Add(bossEnemy);
+                bool isCrit = stats.IsCritHit();
+                float damage = stats.GetSwordDamage(true, isCrit);
+                if (bossEnemy.Take_damage(damage, PlayerAttackType.isSword, true, 2f))
+                    DamageTextPoolManager.instance.ActivateDamageText(damage, isCrit, bossEnemy.gameObject.transform.position);
             }
         }
     }
@@ -360,7 +389,9 @@ public class PlayerController : MonoBehaviour
                 isDashing = false;
             }
         }
+        //set player position
         GameContext.playerPos = rb.position;
+        GameContext.playerPos.y += 1.8f; //center of player
     }
     private void UpdateAnimState()
     {
@@ -370,14 +401,17 @@ public class PlayerController : MonoBehaviour
         //sword
         if (state.IsName(SWORD_ATTACK_1_STATE) && state.normalizedTime >= 1.0f) {
             isAttacking = false;
+            last_time_sword_attack_cd = Time.time;
             newState = PlayerState.Idle;
         }
         else if (state.IsName(SWORD_ATTACK_2_STATE) && state.normalizedTime >= 1.0f) {
             isAttacking = false;
+            last_time_sword_attack_cd = Time.time;
             newState = PlayerState.Idle;
         }
         else if (state.IsName(SWORD_ATTACK_3_STATE) && state.normalizedTime >= 1.0f) {
             isAttacking = false;
+            last_time_sword_attack_cd = Time.time;
             newState = PlayerState.Idle;
         }
         else if (state.IsName(SWORD_ULTIMATE_STATE) && state.normalizedTime >= 1.0f)
@@ -419,27 +453,37 @@ public class PlayerController : MonoBehaviour
         if (shouldAttack)
         {
             shouldAttack = false;
-            isAttacking = true;
             if(activeWeapon == WeaponType.isSword)
             {
                 if (state.IsName(SWORD_ATTACK_1_STATE) && state.normalizedTime >= 0.8f)
                 {
-                    //go from sword first attack to second
+                    //go from first sword attack to second
                     newState = PlayerState.SwordAttack2;
+                    isAttacking = true;
+                    swordTraceAnimator.ActivateVFX(2);
+                    AudioMixerManager.Instance.PlaySound(4);
                 }
                 else if (state.IsName(SWORD_ATTACK_2_STATE) && state.normalizedTime >= 0.8f)
-                    //go from second swored attack to third
+                {
+                    //go from second sword attack to third
                     newState = PlayerState.SwordAttack3;
-                else if (!state.IsName(SWORD_ATTACK_3_STATE))
+                    isAttacking = true;
+                    AudioMixerManager.Instance.PlaySound(4);
+                }
+                else if (!isAttacking)
+                {
                     //otherwise use first attack
                     newState = PlayerState.SwordAttack1;
-                AudioMixerManager.Instance.PlaySound(4);
+                    isAttacking = true;
+                    swordTraceAnimator.ActivateVFX(1);
+                    AudioMixerManager.Instance.PlaySound(4);
+                }
             }
             else if (activeWeapon == WeaponType.isMagicBow)
             {
                 newState = PlayerState.MagicBowAttack;
+                isAttacking = true;
             }
-
         }
         if (shouldActivateUltimateAttack)
         {
@@ -573,6 +617,7 @@ public class PlayerController : MonoBehaviour
             dmg_cd_time_point = Time.time;
             Decrease_HP(dmg);
             AudioMixerManager.Instance.PlaySound(0);
+            DamageTextPoolManager.instance.ActivatePlayerDamageText(dmg, GameContext.playerPos);
             return true;
         }
         return false;
@@ -594,6 +639,7 @@ public class PlayerController : MonoBehaviour
         shouldAttack = false;
         shouldDash = false;
         shouldJump = false;
+        GameContext.attackOutsideAreaIsAllowed = true;
         stats.ClearMoney();
         //clear temporary buffs
         ClearRunBasedSkills();
@@ -622,10 +668,10 @@ public class PlayerController : MonoBehaviour
         else return false;
     }
     private IEnumerator DropFromPlatform() {
-        Physics2D.IgnoreCollision(boxCollider, platformCollider, true);
+        Physics2D.IgnoreCollision(capsuleCollider2D, platformCollider, true);
         rb.linearVelocityY = -4f;
         yield return new WaitForSeconds(0.4f);
-        Physics2D.IgnoreCollision(boxCollider, platformCollider, false);
+        Physics2D.IgnoreCollision(capsuleCollider2D, platformCollider, false);
         platformCollider = null;
         isDroppingFromPlatform = false;
     }

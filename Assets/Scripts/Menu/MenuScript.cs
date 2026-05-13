@@ -21,8 +21,8 @@ public class MenuScript : MonoBehaviour
 
     void Start()
     {
+        instance = this;
         savesList = new();
-
         menuPage.SetActive(true);
         savesPage.SetActive(false);
         settingsPage.SetActive(false);
@@ -31,6 +31,16 @@ public class MenuScript : MonoBehaviour
         InitPages();
         SavesManager.Instance.LoadSaves();
         LoadSavesUI();
+    }
+    public void DeleteSaveElement(int saveIndex)
+    {
+        Destroy(savesList[saveIndex]);
+        savesList.RemoveAt(saveIndex);
+        //change save indexes for next elements
+        for(int i = saveIndex; i < savesList.Count; i++)
+        {
+            savesList[i].GetComponent<SaveElement>().saveDataIndex = i;
+        }
     }
     private void InitPages()
     {
@@ -69,6 +79,10 @@ public class MenuScript : MonoBehaviour
     private void ReturnToMenu()
     {
         active_page.SetActive(false);
+        if(active_page == settingsPage)
+        {
+            SavesManager.Instance.SaveGameSettings();
+        }
         menuPage.SetActive(true);
         active_page = menuPage;
         AudioMixerManager.Instance.PlaySound(13);

@@ -5,7 +5,6 @@ public class SkeletonWarrior : Enemy
 {
     static string ATTACK_STATE = "Attack";
 
-    protected Animator animator;
     public float stop_radius = 5f;
     public float attack_interval_sec = 1f;
     public GameObject attackArea;
@@ -16,7 +15,6 @@ public class SkeletonWarrior : Enemy
     public override void Awake()
     {
         base.Awake();
-        animator = GetComponent<Animator>();
         hitCollider = attackArea.GetComponent<CircleCollider2D>();
         hitCollider.enabled = false;
         last_attack_time = Time.time;

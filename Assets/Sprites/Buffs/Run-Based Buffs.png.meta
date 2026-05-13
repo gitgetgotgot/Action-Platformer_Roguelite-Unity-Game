@@ -1,0 +1,1035 @@
+fileFormatVersion: 2
+guid: 778079f4c3596d144b035177e8f3e182
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8170193985675703182
+    second: Run-Based Buffs_0
+  - first:
+      213: -301922433293370354
+    second: Run-Based Buffs_1
+  - first:
+      213: -8988312256449948615
+    second: Run-Based Buffs_2
+  - first:
+      213: -1752409778288500043
+    second: Run-Based Buffs_3
+  - first:
+      213: 1653537841881597604
+    second: Run-Based Buffs_4
+  - first:
+      213: 6447164910292767923
+    second: Run-Based Buffs_5
+  - first:
+      213: -3472771276446159756
+    second: Run-Based Buffs_6
+  - first:
+      213: 1662083907524795480
+    second: Run-Based Buffs_7
+  - first:
+      213: 3166215766133973327
+    second: Run-Based Buffs_8
+  - first:
+      213: -777397652737136541
+    second: Run-Based Buffs_9
+  - first:
+      213: 4654044272223772124
+    second: Run-Based Buffs_10
+  - first:
+      213: -1385794987644565206
+    second: Run-Based Buffs_11
+  - first:
+      213: -6920073805796282005
+    second: Run-Based Buffs_12
+  - first:
+      213: -9051596978328617049
+    second: Run-Based Buffs_13
+  - first:
+      213: -7980152377659899335
+    second: Run-Based Buffs_14
+  - first:
+      213: -3854576564666386738
+    second: Run-Based Buffs_15
+  - first:
+      213: 6833708428046227924
+    second: Run-Based Buffs_16
+  - first:
+      213: -8470150386132283127
+    second: Run-Based Buffs_17
+  - first:
+      213: 4560919666556499386
+    second: Run-Based Buffs_18
+  - first:
+      213: 4992836922800703047
+    second: Run-Based Buffs_19
+  - first:
+      213: 7578636503814763086
+    second: Run-Based Buffs_20
+  - first:
+      213: 5088996532428940460
+    second: Run-Based Buffs_21
+  - first:
+      213: -295678945328777461
+    second: Run-Based Buffs_22
+  - first:
+      213: 7035325717507685933
+    second: Run-Based Buffs_23
+  - first:
+      213: -2268609848482754413
+    second: Run-Based Buffs_24
+  - first:
+      213: -3023648909130893163
+    second: Run-Based Buffs_25
+  - first:
+      213: -6208045810222612314
+    second: Run-Based Buffs_26
+  - first:
+      213: 9163086146601645646
+    second: Run-Based Buffs_27
+  - first:
+      213: 4697008505655260884
+    second: Run-Based Buffs_28
+  - first:
+      213: 8292340481526306041
+    second: Run-Based Buffs_29
+  - first:
+      213: -1996460158229583916
+    second: Run-Based Buffs_30
+  - first:
+      213: 3782343585316217110
+    second: Run-Based Buffs_31
+  - first:
+      213: -4199353632499849796
+    second: Run-Based Buffs_32
+  - first:
+      213: 2756491791949439554
+    second: Run-Based Buffs_33
+  - first:
+      213: 1091930413791867580
+    second: Run-Based Buffs_34
+  - first:
+      213: 2442650860321472088
+    second: Run-Based Buffs_35
+  - first:
+      213: 4778251255241487551
+    second: Run-Based Buffs_36
+  - first:
+      213: -952787383341698144
+    second: Run-Based Buffs_37
+  - first:
+      213: -2410204969837434397
+    second: Run-Based Buffs_38
+  - first:
+      213: -4977162410929873071
+    second: Run-Based Buffs_39
+  - first:
+      213: 5634829451316522570
+    second: Run-Based Buffs_40
+  - first:
+      213: -8548154734470569753
+    second: Run-Based Buffs_41
+  - first:
+      213: 8897930644802832111
+    second: Run-Based Buffs_42
+  - first:
+      213: -3038637969575212128
+    second: Run-Based Buffs_43
+  - first:
+      213: 4148423094197354623
+    second: Run-Based Buffs_44
+  - first:
+      213: -5609136654427097914
+    second: Run-Based Buffs_45
+  - first:
+      213: -1144900523931892610
+    second: Run-Based Buffs_46
+  - first:
+      213: 1721825167531119940
+    second: Run-Based Buffs_47
+  - first:
+      213: 2315303743795752381
+    second: Run-Based Buffs_48
+  - first:
+      213: 4431585705544268281
+    second: Run-Based Buffs_49
+  - first:
+      213: 8453382984341352159
+    second: Run-Based Buffs_50
+  - first:
+      213: -1815601917184848860
+    second: Run-Based Buffs_51
+  - first:
+      213: -6217954846050818864
+    second: Run-Based Buffs_52
+  - first:
+      213: 6041262101084213538
+    second: Run-Based Buffs_53
+  - first:
+      213: -3794821706458587884
+    second: Run-Based Buffs_54
+  - first:
+      213: -1894432487234710538
+    second: Run-Based Buffs_55
+  - first:
+      213: 520051642792682944
+    second: Run-Based Buffs_56
+  - first:
+      213: 5731516902993670625
+    second: Run-Based Buffs_57
+  - first:
+      213: 3624207390007317788
+    second: Run-Based Buffs_58
+  - first:
+      213: 849137781829876331
+    second: Run-Based Buffs_59
+  - first:
+      213: -4411331031739556023
+    second: Run-Based Buffs_60
+  - first:
+      213: -1583076880309764388
+    second: Run-Based Buffs_61
+  - first:
+      213: -7520482139362222528
+    second: Run-Based Buffs_62
+  - first:
+      213: -5259060764651514787
+    second: Run-Based Buffs_63
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HP_Up_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db4190664dfad654c85166ccee767e81
+      internalID: -871021233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Up_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e948c63b4001cb4faffbf99b27cc132
+      internalID: -563110042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Up_3
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0da87ad78c8be49459481453bf987bb8
+      internalID: -1065716110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Regen_1
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bbfa98a0d73ce74b855d9ca3a640ec3
+      internalID: -1993254108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Regen_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 901f83dc36e837347bc2a7ce3c545c96
+      internalID: 1615506006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Regen_3
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 641185dfce3840744a82201d7187f946
+      internalID: -2001094959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mana_Up_1
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c4d5c3e5d9d74f47be28241fd1f6d08
+      internalID: 1522898740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mana_Up_2
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1547f0e76ecf844696e48e31038a5f6
+      internalID: 1584769399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mana_Up_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98fe71115b8227c41a47bde1867e7a54
+      internalID: 2138839301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mana_Regen_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bfaaf758fd5a284cb7d3d7f6aa96db2
+      internalID: 1681858806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mana_Regen_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d74d0c8a636b7446a41bd084d97cc21
+      internalID: 751656014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mana_Regen_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d502c937479833e499249146983b0205
+      internalID: 650922425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamina_Up_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f06390b7fffb6949949abc59f17eb84
+      internalID: -247542929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamina_Up_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 105f7ff06fa787942a9016497fefac51
+      internalID: -1647480562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamina_Up_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c3ebce500c736648b1096a70bb3b148
+      internalID: -910754899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamina_Regen_1
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8d974fda2e5a664aa198f19fa26398b
+      internalID: -363746852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamina_Regen_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c22e28ef9548ecb4c9fd65271464b813
+      internalID: 1475919320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamina_Regen_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db48cef3fab54294689d3feec1b52f1b
+      internalID: -415728316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crit_Rate_Up_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c01eafea26382564491d380c374696c4
+      internalID: 1433764025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crit_Rate_Up_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce30bedaed1ecfe4f841137a96a74e0d
+      internalID: 300430680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crit_Rate_Up_3
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ed3b0de407462448acea3f80cec2bea
+      internalID: 1902275459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crit_Dmg_Up_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ccb79e281c79734b99af5f716094266
+      internalID: 430891278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crit_Dmg_Up_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e65cb9234fc0fb9419e692ce3e710e4b
+      internalID: 248702476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crit_Dmg_Up_3
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb94b177394b46045998a97fca28f61a
+      internalID: 1051603554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Full_Regen
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5984ea7e4ae4784082d8bd61ca7ab14
+      internalID: -561214861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sword_Dmg_Up_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20580a1c142fe0b488c5f45d01423335
+      internalID: -1120980677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sword_Dmg_Up_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d1a0c4822ff9154bbf799939f482dab
+      internalID: -1022267719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sword_Dmg_Up_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c29accd1acd80b499f2c7aa2f18cd70
+      internalID: 1498034446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Magic_Bow_Dmg_Up_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bc8e2190f18da044bdd9e15936373dd
+      internalID: 1236158089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Magic_Bow_Dmg_Up_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35c278158825c3249ad702f92b8d89d6
+      internalID: 1809806048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Magic_Bow_Dmg_Up_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca68a36edce5f0f4aa4665594c53858a
+      internalID: 1720883951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 00bca7155ab6ee04080a598647674b36
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Crit_Dmg_Up_1: 430891278
+      Crit_Dmg_Up_2: 248702476
+      Crit_Dmg_Up_3: 1051603554
+      Crit_Rate_Up_1: 1433764025
+      Crit_Rate_Up_2: 300430680
+      Crit_Rate_Up_3: 1902275459
+      HP_Full_Regen: -561214861
+      HP_Regen_1: -1993254108
+      HP_Regen_2: 1615506006
+      HP_Regen_3: -2001094959
+      HP_Up_1: -8170193985675703182
+      HP_Up_2: -563110042
+      HP_Up_3: -1065716110
+      Magic_Bow_Dmg_Up_1: 1236158089
+      Magic_Bow_Dmg_Up_2: 1809806048
+      Magic_Bow_Dmg_Up_3: 1720883951
+      Mana_Regen_1: 1681858806
+      Mana_Regen_2: 751656014
+      Mana_Regen_3: 650922425
+      Mana_Up_1: 1522898740
+      Mana_Up_2: 1584769399
+      Mana_Up_3: 2138839301
+      Stamina_Regen_1: -363746852
+      Stamina_Regen_2: 1475919320
+      Stamina_Regen_3: -415728316
+      Stamina_Up_1: -247542929
+      Stamina_Up_2: -1647480562
+      Stamina_Up_3: -910754899
+      Sword_Dmg_Up_1: -1120980677
+      Sword_Dmg_Up_2: -1022267719
+      Sword_Dmg_Up_3: 1498034446
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

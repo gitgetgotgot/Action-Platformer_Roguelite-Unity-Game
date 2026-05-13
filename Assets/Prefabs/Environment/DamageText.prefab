@@ -152,4 +152,4 @@ MonoBehaviour:
   lifetime: 0.8
   fade_offset: 0.4
   y_move_distance: 1.5
-  max_scale: 2
+  max_scale: 1.5

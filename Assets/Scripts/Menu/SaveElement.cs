@@ -16,6 +16,7 @@ public class SaveElement : MonoBehaviour
         playButton = transform.Find("PlayButton").GetComponent<Button>();
         deleteButton = transform.Find("DeleteButton").GetComponent<Button>();
         playButton.onClick.AddListener(LoadSave);
+        deleteButton.onClick.AddListener(OpenSavesPageDeleteWindow);
     }
     public void SetData(int index, string playerName, int level)
     {
@@ -31,5 +32,9 @@ public class SaveElement : MonoBehaviour
     {
         GameContext.Update_active_save(saveDataIndex);
         SceneManager.LoadScene("Game_Scene");
+    }
+    private void OpenSavesPageDeleteWindow()
+    {
+        SavesPage.Instance.OpenDeleteWindow(saveDataIndex);
     }
 }

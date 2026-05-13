@@ -49,6 +49,26 @@ public class PlayerArrow : MonoBehaviour
                     Destroy(gameObject);
             }
         }
+        if (collision.CompareTag("BossEnemy"))
+        {
+            BossEnemy enemy = collision.gameObject.GetComponent<BossEnemy>();
+            bool isCrit = GameContext.playerStats.IsCritHit();
+            //if arrow is not destroyed on enemy hit, then it's an ultimate magic arrow (not good code logic, but ok)
+            float damage = GameContext.playerStats.GetMagicDamage(!destroyOnEnemyHit, isCrit);
+            if (enemy.Take_damage(damage, PlayerAttackType.isMagicArrow))
+            {
+                DamageTextPoolManager.instance.ActivateDamageText(damage, isCrit, enemy.gameObject.transform.position);
+                if (hasKnockback)
+                {
+                    if (GameContext.playerPos.x > transform.position.x)
+                        enemy.ApplyKnockback(knockbackForce * 0.25f, false); //apply knockback to left side
+                    else
+                        enemy.ApplyKnockback(knockbackForce * 0.25f, true);
+                }
+                if (destroyOnEnemyHit)
+                    Destroy(gameObject);
+            }
+        }
         else if (collision.CompareTag("Ground"))
         {
             Destroy(gameObject);
